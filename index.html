@@ -110,6 +110,18 @@ nav.main a:hover{color:var(--text);}
 }
 .theme-btn:hover{color:var(--text);border-color:var(--muted);}
 @media(max-width:900px){nav.main{display:none;}.controls{margin-left:auto;}}
+@media(max-width:600px){
+  .lang{max-width:calc(100vw - 160px);}
+  .lang button{font-size:11px;padding:5px 6px;}
+  .header-in{gap:10px;}
+  .logo-word{font-size:13px;letter-spacing:.04em;}
+  section{padding:60px 0;}
+  .hero{padding:60px 0 64px;}
+  .wrap{padding:0 16px;}
+  .hypothesis-block{padding:22px 20px;}
+  .hero-grid{gap:36px;}
+  .lead{font-size:16px;}
+}
 
 /* shared */
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1;}
@@ -1605,14 +1617,14 @@ let currentTheme = "dark";
 
 (function(){
   const nav = (navigator.language || "en").toLowerCase();
-  if(nav.startsWith("ru")||nav.startsWith("uk")||nav.startsWith("kk")||nav.startsWith("ky")||nav.startsWith("uz")) currentLang="ru";
-  else if(nav.startsWith("de")) currentLang="de";
+  if(nav.startsWith("ru")||nav.startsWith("uk")||nav.startsWith("kk")||nav.startsWith("ky")||nav.startsWith("uz")||nav.startsWith("be")||nav.startsWith("tg")) currentLang="ru";
+  else if(nav.startsWith("de")||nav.startsWith("lb")||nav.startsWith("gsw")) currentLang="de";
   else if(nav.startsWith("zh")) currentLang="zh";
   else if(nav.startsWith("ja")) currentLang="ja";
   else if(nav.startsWith("ko")) currentLang="ko";
   else if(nav.startsWith("ar")) currentLang="ar";
-  else if(nav.startsWith("fr")) currentLang="fr";
-  else if(nav.startsWith("es")) currentLang="es";
+  else if(nav.startsWith("fr")||nav.startsWith("oc")) currentLang="fr";
+  else if(nav.startsWith("es")||nav.startsWith("ca")||nav.startsWith("gl")) currentLang="es";
 })();
 
 function applyLang(lang){
