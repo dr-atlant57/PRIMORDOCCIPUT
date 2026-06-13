@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Primordocciput — The Primary Displacement Hypothesis</title>
+<meta name="description" content="Primordocciput is a clinical hypothesis proposing a primary structural displacement at the cranio-cervical junction (C0) from which systemic asymmetry may originate. An open research program.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maxw:1080px;
+  --font-display:'Spectral',Georgia,serif;
+  --font-body:'IBM Plex Sans',-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'IBM Plex Mono','SF Mono',monospace;
+}
+html[data-theme="dark"]{
+  --bg:#0E1217;
+  --bg-soft:#121820;
+  --surface:#181F28;
+  --surface-2:#1D2530;
+  --text:#E4E9ED;
+  --text-soft:#C0C9D1;
+  --muted:#8A96A0;
+  --line:#28333D;
+  --line-soft:#1F2C36;
+  --accent:#B07D4A;
+  --accent-soft:rgba(176,125,74,.13);
+  --accent-2:#7A9BB5;
+  --header-bg:rgba(14,18,23,.84);
+  --shadow:0 10px 36px rgba(0,0,0,.38);
+}
+html[data-theme="light"]{
+  --bg:#F1F2F0;
+  --bg-soft:#EAECE9;
+  --surface:#F9FAF8;
+  --surface-2:#FFFFFF;
+  --text:#1F2428;
+  --text-soft:#374048;
+  --muted:#586068;
+  --line:#D4D9DC;
+  --line-soft:#DFE3E4;
+  --accent:#8C4E10;
+  --accent-soft:rgba(140,78,16,.09);
+  --accent-2:#365F78;
+  --header-bg:rgba(241,242,240,.88);
+  --shadow:0 10px 30px rgba(25,35,45,.07);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--text);font-family:var(--font-body);
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  transition:background .35s ease,color .35s ease;
+}
+::selection{background:var(--accent-soft);}
+a{color:inherit;}
+img,svg{display:block;max-width:100%;}
+
+/* spine */
+.spine{position:fixed;left:34px;top:0;bottom:0;width:1px;background:var(--line-soft);z-index:0;}
+@media(max-width:1180px){.spine{display:none;}}
+
+/* header */
+header{
+  position:sticky;top:0;z-index:50;
+  background:var(--header-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line-soft);
+}
+.header-in{
+  max-width:var(--maxw);margin:0 auto;padding:0 24px;
+  height:64px;display:flex;align-items:center;gap:28px;
+}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;}
+/* logo mark: vertical axis + C0 dot */
+.logo-mark{width:16px;height:28px;position:relative;flex:none;}
+.logo-mark::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1.5px;background:var(--text);transform:translateX(-50%);}
+.logo-mark::after{
+  content:"";position:absolute;left:50%;top:4px;
+  width:7px;height:7px;border-radius:50%;background:var(--accent);
+  transform:translateX(-50%);
+  box-shadow:0 0 0 2.5px var(--accent-soft);
+}
+.logo-word{
+  font-family:var(--font-body);font-weight:600;letter-spacing:.06em;font-size:14.5px;
+  text-transform:uppercase;
+}
+nav.main{display:flex;gap:22px;margin-left:auto;}
+nav.main a{font-size:13.5px;color:var(--muted);text-decoration:none;transition:color .2s;}
+nav.main a:hover{color:var(--text);}
+.controls{display:flex;align-items:center;gap:8px;margin-left:16px;}
+
+/* lang switcher — scrollable strip */
+.lang{
+  display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  max-width:260px;overflow-x:auto;scrollbar-width:none;
+}
+.lang::-webkit-scrollbar{display:none;}
+.lang button{
+  font-family:var(--font-mono);font-size:12px;padding:5px 8px;border:none;cursor:pointer;
+  background:transparent;color:var(--muted);transition:.2s;white-space:nowrap;flex:none;
+  border-right:1px solid var(--line);
+}
+.lang button:last-child{border-right:none;}
+.lang button.on{background:var(--accent-soft);color:var(--accent);font-weight:500;}
+.theme-btn{
+  width:34px;height:32px;border:1px solid var(--line);border-radius:7px;cursor:pointer;
+  background:transparent;color:var(--muted);display:flex;align-items:center;justify-content:center;transition:.2s;
+}
+.theme-btn:hover{color:var(--text);border-color:var(--muted);}
+@media(max-width:900px){nav.main{display:none;}.controls{margin-left:auto;}}
+@media(max-width:600px){
+  .lang{max-width:calc(100vw - 160px);}
+  .lang button{font-size:11px;padding:5px 6px;}
+  .header-in{gap:10px;}
+  .logo-word{font-size:13px;letter-spacing:.04em;}
+  section{padding:60px 0;}
+  .hero{padding:60px 0 64px;}
+  .wrap{padding:0 16px;}
+  .hypothesis-block{padding:22px 20px;}
+  .hero-grid{gap:36px;}
+  .lead{font-size:16px;}
+}
+
+/* shared */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+section{padding:92px 0;border-bottom:1px solid var(--line-soft);}
+section:last-of-type{border-bottom:none;}
+.eyebrow{
+  font-family:var(--font-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);display:flex;align-items:center;gap:12px;margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--accent);}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.18;}
+h2{font-size:clamp(28px,4vw,40px);margin-bottom:18px;letter-spacing:-.01em;}
+.lead{font-size:17.5px;color:var(--text-soft);max-width:680px;}
+.note{
+  margin-top:30px;padding:16px 20px;border-left:2px solid var(--accent);
+  background:var(--accent-soft);border-radius:0 8px 8px 0;
+  font-size:14px;color:var(--text-soft);max-width:680px;
+}
+.note b{color:var(--text);font-weight:600;}
+.grid{display:grid;gap:18px;margin-top:42px;}
+.g2{grid-template-columns:repeat(2,1fr);}
+.g3{grid-template-columns:repeat(3,1fr);}
+.g4{grid-template-columns:repeat(2,1fr);}
+@media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr;}}
+.card{
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:12px;
+  padding:26px 24px;transition:border-color .25s,transform .25s;
+}
+.card:hover{border-color:var(--line);transform:translateY(-2px);}
+.card h3{font-family:var(--font-body);font-weight:600;font-size:16px;margin-bottom:10px;}
+.card p{font-size:14.5px;color:var(--muted);line-height:1.6;}
+.card .tag{
+  font-family:var(--font-mono);font-size:12.5px;color:var(--accent);
+  display:block;margin-bottom:12px;letter-spacing:.08em;
+}
+.close-line{
+  margin-top:38px;font-family:var(--font-display);font-style:italic;
+  font-size:20px;color:var(--text-soft);max-width:640px;
+}
+
+/* ---- hero ---- */
+.hero{padding:96px 0 100px;border-bottom:1px solid var(--line-soft);}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center;}
+@media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:48px;}}
+.hero h1{font-size:clamp(36px,5.4vw,58px);letter-spacing:-.015em;margin:0 0 22px;}
+.hero h1 em{font-style:italic;color:var(--accent);}
+.hero .sub{font-size:18px;color:var(--text-soft);max-width:560px;margin-bottom:34px;}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;text-decoration:none;border-radius:9px;
+  font-size:15px;font-weight:500;padding:13px 24px;transition:.22s;cursor:pointer;border:1px solid transparent;
+}
+.btn-primary{background:var(--accent);color:#14110C;}
+html[data-theme="light"] .btn-primary{color:#FFF8F0;}
+.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px);}
+.btn-ghost{border-color:var(--line);color:var(--text-soft);}
+.btn-ghost:hover{border-color:var(--muted);color:var(--text);}
+.hero-note{margin-top:26px;font-family:var(--font-mono);font-size:13px;color:var(--muted);letter-spacing:.02em;}
+.fig{position:relative;}
+.fig-caption{margin-top:14px;font-family:var(--font-mono);font-size:12.5px;color:var(--muted);text-align:center;}
+
+/* SVG styles */
+.axis-svg .ref{stroke:var(--text-soft);stroke-width:1.4;}
+.axis-svg .tick{stroke:var(--line);stroke-width:1;}
+.axis-svg .comp{stroke:var(--accent);stroke-width:1.6;fill:none;stroke-dasharray:5 5;}
+.axis-svg .node{fill:var(--accent);}
+.axis-svg .ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.55;}
+.axis-svg .ring2{fill:none;stroke:var(--accent);stroke-width:.5;opacity:.3;}
+.axis-svg .lead-line{stroke:var(--muted);stroke-width:.8;stroke-dasharray:2 3;}
+.axis-svg text{font-family:var(--font-mono);font-size:11.5px;fill:var(--muted);}
+.axis-svg .lbl-c0{fill:var(--accent);font-weight:500;font-size:13.5px;}
+.axis-svg .lbl-title{fill:var(--text-soft);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;}
+@media(prefers-reduced-motion:no-preference){
+  .axis-svg .ref{stroke-dasharray:520;stroke-dashoffset:520;animation:draw 1.6s ease forwards .2s;}
+  .axis-svg .comp{animation:fade 1s ease forwards 1.3s;opacity:0;}
+  .axis-svg .ring{animation:pulse 3.2s ease-out infinite 1.6s;transform-origin:center;transform-box:fill-box;}
+  .axis-svg .ring2{animation:pulse 3.2s ease-out infinite 2.2s;transform-origin:center;transform-box:fill-box;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @keyframes fade{to{opacity:1;}}
+  @keyframes pulse{0%{opacity:.55;}50%{opacity:.1;}100%{opacity:.55;}}
+}
+
+/* hypothesis statement block */
+.hypothesis-block{
+  margin-top:48px;padding:32px 36px;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:14px;
+  border-left:3px solid var(--accent);
+  max-width:820px;
+}
+.hypothesis-block .h-label{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:16px;
+}
+.hypothesis-block blockquote{
+  font-family:var(--font-display);font-style:italic;
+  font-size:clamp(19px,2.6vw,26px);color:var(--text);line-height:1.4;
+  margin-bottom:20px;
+}
+.hypothesis-block .h-sub{font-size:14.5px;color:var(--muted);line-height:1.7;}
+.hypothesis-block .h-status{
+  margin-top:18px;font-family:var(--font-mono);font-size:12.5px;color:var(--accent);
+  letter-spacing:.04em;
+}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;max-width:680px;}
+.chip{
+  font-family:var(--font-mono);font-size:13.5px;color:var(--text-soft);
+  border:1px solid var(--line);border-radius:999px;padding:9px 18px;background:var(--surface);
+}
+
+/* map panel */
+.map-panel{
+  margin-top:42px;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
+}
+.map-row{display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--line-soft);}
+.map-row:last-child{border-bottom:none;}
+.map-key{
+  font-family:var(--font-mono);font-size:13px;color:var(--accent);padding:22px 24px;
+  border-right:1px solid var(--line-soft);display:flex;align-items:center;letter-spacing:.04em;
+}
+.map-val{padding:22px 24px;font-size:14.5px;color:var(--text-soft);}
+@media(max-width:680px){.map-row{grid-template-columns:1fr;}.map-key{border-right:none;padding-bottom:4px;}.map-val{padding-top:6px;}}
+.map-out{margin-top:26px;font-size:15px;color:var(--text-soft);max-width:680px;}
+
+/* observed associations table */
+.assoc-table{
+  margin-top:42px;border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;
+}
+.assoc-row{
+  display:grid;grid-template-columns:220px 1fr 130px;
+  border-bottom:1px solid var(--line-soft);
+}
+.assoc-row.head{background:var(--surface-2);}
+.assoc-row:last-child{border-bottom:none;}
+.assoc-cell{padding:18px 22px;font-size:14px;color:var(--text-soft);}
+.assoc-cell.key{font-family:var(--font-mono);font-size:13px;color:var(--text);display:flex;align-items:center;}
+.assoc-cell.head-cell{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;}
+.status-badge{
+  display:inline-block;font-family:var(--font-mono);font-size:11.5px;
+  padding:4px 10px;border-radius:6px;letter-spacing:.04em;
+}
+.s-obs{background:rgba(176,125,74,.15);color:var(--accent);}
+.s-hyp{background:rgba(122,155,181,.12);color:var(--accent-2);}
+.s-open{background:rgba(138,150,160,.1);color:var(--muted);}
+@media(max-width:700px){.assoc-row{grid-template-columns:1fr;}.assoc-cell{padding:12px 18px;}.assoc-cell.head-cell:not(:first-child){display:none;}.assoc-row.head{display:none;}}
+
+/* future research */
+.future-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:42px;}
+@media(max-width:860px){.future-grid{grid-template-columns:1fr;}}
+.future-card{
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:12px;padding:26px 24px;
+}
+.future-card .fc-num{font-family:var(--font-mono);font-size:12.5px;color:var(--accent);margin-bottom:12px;letter-spacing:.06em;}
+.future-card h3{font-family:var(--font-body);font-weight:600;font-size:15.5px;margin-bottom:10px;}
+.future-card p{font-size:14px;color:var(--muted);line-height:1.65;}
+
+/* dims (case stats) */
+.dims{display:flex;flex-wrap:wrap;gap:0;margin-top:38px;border:1px solid var(--line-soft);border-radius:12px;overflow:hidden;}
+.dim{
+  flex:1 1 200px;padding:22px;border-right:1px solid var(--line-soft);background:var(--surface);
+  font-size:14px;color:var(--text-soft);display:flex;gap:10px;align-items:baseline;
+}
+.dim:last-child{border-right:none;}
+.dim .n{font-family:var(--font-mono);color:var(--accent);font-size:13px;}
+@media(max-width:860px){.dim{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--line-soft);}.dim:last-child{border-bottom:none;}}
+
+/* FAQ */
+.faq{max-width:760px;margin-top:36px;}
+details{border-bottom:1px solid var(--line-soft);}
+details summary{
+  list-style:none;cursor:pointer;padding:22px 36px 22px 0;position:relative;
+  font-family:var(--font-display);font-size:19px;transition:color .2s;
+}
+details summary::-webkit-details-marker{display:none;}
+details summary::after{
+  content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);
+  font-family:var(--font-mono);color:var(--accent);font-size:19px;transition:transform .25s;
+}
+details[open] summary::after{transform:translateY(-50%) rotate(45deg);}
+details .a{padding:0 0 24px;font-size:15px;color:var(--text-soft);max-width:680px;line-height:1.7;}
+
+/* contact section */
+.contact-block{
+  margin-top:48px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.contact-email{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-mono);font-size:15px;color:var(--text);
+  text-decoration:none;padding:14px 22px;
+  border:1px solid var(--line);border-radius:10px;
+  background:var(--surface);transition:.22s;
+}
+.contact-email:hover{border-color:var(--accent);color:var(--accent);}
+.contact-email svg{flex:none;opacity:.7;}
+.contact-note{font-size:14px;color:var(--muted);max-width:460px;font-style:italic;font-family:var(--font-display);}
+
+/* footer */
+footer{border-top:1px solid var(--line-soft);padding:48px 0 56px;background:var(--bg-soft);}
+.foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;}
+.foot-left p{font-size:14px;color:var(--muted);}
+.foot-left p:first-child{color:var(--text-soft);font-weight:500;margin-bottom:6px;}
+.foot-right{font-family:var(--font-mono);font-size:12.5px;color:var(--muted);text-align:right;line-height:2;}
+.foot-email{margin-top:10px;}
+.foot-email a{color:var(--accent);text-decoration:none;font-family:var(--font-mono);font-size:13px;}
+.foot-email a:hover{text-decoration:underline;}
+@media(max-width:680px){.foot-right{text-align:left;}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  html{scroll-behavior:auto;}
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
+
+/* RTL support for Arabic */
+html[lang="ar"]{direction:rtl;}
+html[lang="ar"] .eyebrow::before{display:none;}
+html[lang="ar"] .eyebrow::after{content:"";width:26px;height:1px;background:var(--accent);}
+html[lang="ar"] .note{border-left:none;border-right:2px solid var(--accent);border-radius:8px 0 0 8px;}
+html[lang="ar"] .hypothesis-block{border-left:none;border-right:3px solid var(--accent);}
+html[lang="ar"] .map-key{border-right:none;border-left:1px solid var(--line-soft);}
+html[lang="ar"] .lang{direction:ltr;}
+</style>
+</head>
+<body>
+<div class="spine" aria-hidden="true"></div>
+
+<header>
+  <div class="header-in">
+    <a class="logo" href="#top" aria-label="Primordocciput — home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-word">Primordocciput</span>
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="#hypothesis" data-i18n="nav_hypothesis"></a>
+      <a href="#compensation" data-i18n="nav_compensation"></a>
+      <a href="#research" data-i18n="nav_research"></a>
+      <a href="#cases" data-i18n="nav_cases"></a>
+      <a href="#contact" data-i18n="nav_contact"></a>
+    </nav>
+    <div class="controls">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="de">DE</button>
+        <button type="button" data-lang="ru">RU</button>
+        <button type="button" data-lang="es">ES</button>
+        <button type="button" data-lang="fr">FR</button>
+        <button type="button" data-lang="ar">AR</button>
+        <button type="button" data-lang="zh">中文</button>
+        <button type="button" data-lang="ja">日本語</button>
+        <button type="button" data-lang="ko">한국어</button>
+      </div>
+      <button type="button" class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" id="themeIcon">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- 1 · HERO -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow" data-i18n="hero_eyebrow"></div>
+      <h1 data-i18n="hero_title"></h1>
+      <p class="sub" data-i18n="hero_sub"></p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#hypothesis" data-i18n="hero_cta1"></a>
+        <a class="btn btn-ghost" href="#research" data-i18n="hero_cta2"></a>
+      </div>
+      <p class="hero-note" data-i18n="hero_note"></p>
+    </div>
+    <div class="fig">
+      <svg class="axis-svg" viewBox="0 0 340 540" role="img" aria-label="Schematic of structural axis with C0 primary displacement point and compensation chain">
+        <!-- ruler ticks -->
+        <g class="ticks">
+          <line class="tick" x1="150" y1="60"  x2="158" y2="60"/>
+          <line class="tick" x1="150" y1="110" x2="158" y2="110"/>
+          <line class="tick" x1="150" y1="160" x2="158" y2="160"/>
+          <line class="tick" x1="150" y1="210" x2="158" y2="210"/>
+          <line class="tick" x1="150" y1="260" x2="158" y2="260"/>
+          <line class="tick" x1="150" y1="310" x2="158" y2="310"/>
+          <line class="tick" x1="150" y1="360" x2="158" y2="360"/>
+          <line class="tick" x1="150" y1="410" x2="158" y2="410"/>
+          <line class="tick" x1="150" y1="460" x2="158" y2="460"/>
+        </g>
+        <!-- vertical reference axis -->
+        <line class="ref" x1="158" y1="36" x2="158" y2="510"/>
+        <!-- compensation curve -->
+        <path class="comp" d="M178,72 C196,140 138,185 154,245 C168,298 184,330 160,385 C146,420 152,470 158,505"/>
+        <!-- C0 node — primary displacement point -->
+        <circle class="ring2" cx="178" cy="72" r="20"/>
+        <circle class="ring" cx="178" cy="72" r="13"/>
+        <circle class="node" cx="178" cy="72" r="5"/>
+        <!-- labels -->
+        <line class="lead-line" x1="186" y1="68" x2="218" y2="48"/>
+        <text class="lbl-c0" x="222" y="44">C0</text>
+        <text x="222" y="60" data-i18n="ax_c0a"></text>
+        <text x="222" y="75" data-i18n="ax_c0b"></text>
+        <line class="lead-line" x1="156" y1="300" x2="116" y2="288"/>
+        <text x="20" y="284" data-i18n="ax_axis"></text>
+        <line class="lead-line" x1="176" y1="340" x2="216" y2="356"/>
+        <text x="220" y="360" data-i18n="ax_comp"></text>
+        <!-- bottom label -->
+        <text class="lbl-title" x="158" y="526" text-anchor="middle" data-i18n="ax_scheme"></text>
+      </svg>
+      <p class="fig-caption" data-i18n="hero_fig"></p>
+    </div>
+  </div>
+</div>
+
+<!-- 2 · THE HYPOTHESIS -->
+<section id="hypothesis">
+  <div class="wrap reveal">
+    <div class="eyebrow" data-i18n="s2_eyebrow"></div>
+    <h2 data-i18n="s2_title"></h2>
+    <p class="lead" data-i18n="s2_lead"></p>
+    <div class="hypothesis-block">
+      <div class="h-label" data-i18n="s2_h_label"></div>
+      <blockquote data-i18n="s2_h_quote"></blockquote>
+      <p class="h-sub" data-i18n="s2_h_sub"></p>
+      <p class="h-status" data-i18n="s2_h_status"></p>
+    </div>
+    <div class="grid g3" style="margin-top:48px;">
+      <div class="card"><span class="tag" data-i18n="s2_c1tag"></span><h3 data-i18n="s2_c1t"></h3><p data-i18n="s2_c1b"></p></div>
+      <div class="card"><span class="tag" data-i18n="s2_c2tag"></span><h3 data-i18n="s2_c2t"></h3><p data-i18n="s2_c2b"></p></div>
+      <div class="card"><span class="tag" data-i18n="s2_c3tag"></span><h3 data-i18n="s2_c3t"></h3><p data-i18n="s2_c3b"></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · STRUCTURAL AXIS -->
+<section id="axis">
+  <div class="wrap reveal">
+    <div class="eyebrow" data-i18n="s3_eyebrow"></div>
+    <h2 data-i18n="s3_title"></h2>
+    <p class="lead" data-i18n="s3_lead"></p>
+    <div class="grid g4">
+      <div class="card"><h3 data-i18n="s3_l1t"></h3><p data-i18n="s3_l1b"></p></div>
+      <div class="card"><h3 data-i18n="s3_l2t"></h3><p data-i18n="s3_l2b"></p></div>
+      <div class="card"><h3 data-i18n="s3_l3t"></h3><p data-i18n="s3_l3b"></p></div>
+      <div class="card"><h3 data-i18n="s3_l4t"></h3><p data-i18n="s3_l4b"></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · COMPENSATION PATTERNS -->
+<section id="compensation">
+  <div class="wrap reveal">
+    <div class="eyebrow" data-i18n="s4_eyebrow"></div>
+    <h2 data-i18n="s4_title"></h2>
+    <p class="lead" data-i18n="s4_lead"></p>
+    <div class="grid g3">
+      <div class="card"><span class="tag" data-i18n="s4_c1tag"></span><h3 data-i18n="s4_c1t"></h3><p data-i18n="s4_c1b"></p></div>
+      <div class="card"><span class="tag" data-i18n="s4_c2tag"></span><h3 data-i18n="s4_c2t"></h3><p data-i18n="s4_c2b"></p></div>
+      <div class="card"><span class="tag" data-i18n="s4_c3tag"></span><h3 data-i18n="s4_c3t"></h3><p data-i18n="s4_c3b"></p></div>
+    </div>
+    <p class="close-line" data-i18n="s4_close"></p>
+  </div>
+</section>
+
+<!-- 5 · OBSERVED ASSOCIATIONS -->
+<section id="associations">
+  <div class="wrap reveal">
+    <div class="eyebrow" data-i18n="s5_eyebrow"></div>
+    <h2 data-i18n="s5_title"></h2>
+    <p class="lead" data-i18n="s5_lead"></p>
+    <div class="assoc-table">
+      <div class="assoc-row head">
+        <div class="assoc-cell head-cell" data-i18n="s5_col1"></div>
+        <div class="assoc-cell head-cell" data-i18n="s5_col2"></div>
+        <div class="assoc-cell head-cell" data-i18n="s5_col3"></div>
+      </div>
+      <div class="assoc-row">
+        <div class="assoc-cell key" data-i18n="s5_r1k"></div>
+        <div class="assoc-cell" data-i18n="s5_r1v"></div>
+        <div class="assoc-cell"><span class="status-badge s-obs" data-i18n="s5_s_obs"></span></div>
+      </div>
+      <div class="assoc-row">
+        <div class="assoc-cell key" data-i18n="s5_r2k"></div>
+        <div class="assoc-cell" data-i18n="s5_r2v"></div>
+        <div class="assoc-cell"><span class="status-badge s-obs" data-i18n="s5_s_obs"></span></div>
+      </div>
+      <div class="assoc-row">
+        <div class="assoc-cell key" data-i18n="s5_r3k"></div>
+        <div class="assoc-cell" data-i18n="s5_r3v"></div>
+        <div class="assoc-cell"><span class="status-badge s-hyp" data-i18n="s5_s_hyp"></span></div>
+      </div>
+      <div class="assoc-row">
+        <div class="assoc-cell key" data-i18n="s5_r4k"></div>
+        <div class="assoc-cell" data-i18n="s5_r4v"></div>
+        <div class="assoc-cell"><span class="status-badge s-hyp" data-i18n="s5_s_hyp"></span></div>
+      </div>
+      <div class="assoc-row">
+        <div class="assoc-cell key" data-i18n="s5_r5k"></div>
+        <div class="assoc-cell" data-i18n="s5_r5v"></div>
+        <div class="assoc-cell"><span class="status-badge s-open" data-i18n="s5_s_open"></span></div>
+      </div>
+    </div>
+    <div class="note" data-i18n="s5_note"></div>
+  </div>
+</section>
+
+<!-- 6 · RESEARCH PROGRAM -->
+<section id="research">
+  <div class="wrap reveal">
+    <div class="eyebrow" data-i18n="s6_eyebrow"></div>
+    <h2 data-i18n="s6_title"></h2>
+    <p class="lead" data-i18n="s6_lead"></p>
+    <div class="grid g4">
+      <div class="card"><span class="tag" data-i18n="s6_r1tag"></span><h3 data-i18n="s6_r1t"></h3><p data-i18n="s6_r1b"></p></div>
+      <div class="card"><span class="tag" data-i18n="s6_r2tag"></span><h3 data-i18n="s6_r2t"></h3><p data-i18n="s6_r2b"></p></div>
+      <div class="card"><span class="tag" data-i18n="s6_r3tag"></span><h3 data-i18n="s6_r3t"></h3><p data-i18n="s6_r3b"></p></div>
+      <div class="card"><span class="tag" data-i18n="s6_r4tag"></span><h3 data-i18n="s6_r4t"></h3><p data-i18n="s6_r4b"></p></div>
+    </div>
+    <div class="note" data-i18n="s6_note"></div>
+  </div>
+</section>
+
+<!-- 7 · FALSIFICATION CRITERIA -->
+<section id="falsification">
+  <div class="wrap reveal">
+    <div class="eyebrow" data-i18n="s7_eyebrow"></div>
+    <h2 data-i18n="s7_title"></h2>
+    <p class="lead" data-i18n="s7_lead"></p>
+    <div class="map-panel">
+      <div class="map-row"><div class="map-key" data-i18n="s7_f1k"></div><div class="map-val" data-i18n="s7_f1v"></div></div>
+      <div class="map-row"><div class="map-key" data-i18n="s7_f2k"></div><div class="map-val" data-i18n="s7_f2v"></div></div>
+      <div class="map-row"><div class="map-key" data-i18n="s7_f3k"></div><div class="map-val" data-i18n="s7_f3v"></div></div>
+      <div class="map-row"><div class="map-key" data-i18n="s7_f4k"></div><div class="map-val" data-i18n="s7_f4v"></div></div>
+    </div>
+    <div class="note" data-i18n="s7_note"></div>
+  </div>
+</section>
+
+<!-- 8 · OPEN QUESTIONS -->
+<section id="open-questions">
+  <div class="wrap reveal">
+    <div class="eyebrow" data-i18n="s8_eyebrow"></div>
+    <h2 data-i18n="s8_title"></h2>
+    <p class="lead" data-i18n="s8_lead"></p>
+    <div class="faq">
+      <details><summary data-i18n="s8_q1"></summary><div class="a" data-i18n="s8_a1"></div></details>
+      <details><summary data-i18n="s8_q2"></summary><div class="a" data-i18n="s8_a2"></div></details>
+      <details><summary data-i18n="s8_q3"></summary><div class="a" data-i18n="s8_a3"></div></details>
+      <details><summary data-i18n="s8_q4"></summary><div class="a" data-i18n="s8_a4"></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · CASE OBSERVATIONS -->
+<section id="cases">
+  <div class="wrap reveal">
+    <div class="eyebrow" data-i18n="s9_eyebrow"></div>
+    <h2 data-i18n="s9_title"></h2>
+    <p class="lead" data-i18n="s9_lead"></p>
+    <div class="dims">
+      <div class="dim"><span class="n">3 500+</span><span data-i18n="s9_d1"></span></div>
+      <div class="dim"><span class="n">~10</span><span data-i18n="s9_d2"></span></div>
+      <div class="dim"><span class="n">a→b→c</span><span data-i18n="s9_d3"></span></div>
+      <div class="dim"><span class="n">∞</span><span data-i18n="s9_d4"></span></div>
+    </div>
+    <div class="note" data-i18n="s9_disc"></div>
+  </div>
+</section>
+
+<!-- 10 · FUTURE RESEARCH -->
+<section id="future">
+  <div class="wrap reveal">
+    <div class="eyebrow" data-i18n="s10_eyebrow"></div>
+    <h2 data-i18n="s10_title"></h2>
+    <p class="lead" data-i18n="s10_lead"></p>
+    <div class="future-grid">
+      <div class="future-card"><div class="fc-num" data-i18n="s10_f1n"></div><h3 data-i18n="s10_f1t"></h3><p data-i18n="s10_f1b"></p></div>
+      <div class="future-card"><div class="fc-num" data-i18n="s10_f2n"></div><h3 data-i18n="s10_f2t"></h3><p data-i18n="s10_f2b"></p></div>
+      <div class="future-card"><div class="fc-num" data-i18n="s10_f3n"></div><h3 data-i18n="s10_f3t"></h3><p data-i18n="s10_f3b"></p></div>
+      <div class="future-card"><div class="fc-num" data-i18n="s10_f4n"></div><h3 data-i18n="s10_f4t"></h3><p data-i18n="s10_f4b"></p></div>
+    </div>
+    <div class="note" data-i18n="s10_note"></div>
+  </div>
+</section>
+
+<!-- 11 · CONTACT -->
+<section id="contact">
+  <div class="wrap reveal">
+    <div class="eyebrow" data-i18n="s11_eyebrow"></div>
+    <h2 data-i18n="s11_title"></h2>
+    <p class="lead" data-i18n="s11_lead"></p>
+    <div class="contact-block">
+      <a class="contact-email" href="mailto:info@primordocciput.org">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
+        </svg>
+        info@primordocciput.org
+      </a>
+      <p class="contact-note" data-i18n="s11_note"></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-left">
+      <p data-i18n="f_line1"></p>
+      <p data-i18n="f_line2"></p>
+      <div class="foot-email"><a href="mailto:info@primordocciput.org">info@primordocciput.org</a></div>
+    </div>
+    <div class="foot-right">
+      <div data-i18n="f_disc"></div>
+      <div data-i18n="f_rights"></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+en:{
+  nav_hypothesis:"Hypothesis", nav_compensation:"Compensation", nav_research:"Research", nav_cases:"Cases", nav_contact:"Contact",
+  hero_eyebrow:"Clinical Hypothesis · Cranio-Cervical Junction",
+  hero_title:"One point. <em>Systemic</em> consequence.",
+  hero_sub:"Primordocciput is a hypothesis: at C0 — the cranio-cervical junction — there exists a primary displacement point from which compensatory asymmetry propagates through the entire structural system.",
+  hero_cta1:"Read the hypothesis", hero_cta2:"Research program",
+  hero_note:"An open research hypothesis. Not a diagnosis. Not a treatment protocol.",
+  ax_c0a:"primary displacement", ax_c0b:"(hypothesis)", ax_axis:"structural axis", ax_comp:"compensation chain",
+  ax_scheme:"PRIMORDOCCIPUT · C0 model",
+  hero_fig:"Schematic model — not an anatomical rendering.",
+
+  s2_eyebrow:"01 · The Hypothesis",
+  s2_title:"The Primordocciput hypothesis.",
+  s2_lead:"Most structural interventions address downstream compensations. The Primordocciput hypothesis proposes a different starting point: a primary displacement at the cranio-cervical junction that precedes and organizes everything below.",
+  s2_h_label:"Core statement",
+  s2_h_quote:"At C0 — the atlanto-occipital joint — a primary structural displacement may act as the organizing origin of systemic asymmetry, loading patterns, and adaptive compensation chains throughout the body.",
+  s2_h_sub:"This displacement is not the only factor. It is proposed as the primary one — the point from which cascading adaptations become both necessary and predictable. The hypothesis is falsifiable, and its limits are actively under study.",
+  s2_h_status:"Epistemic status: clinical hypothesis under study · not established fact",
+  s2_c1tag:"origin", s2_c1t:"Primary displacement", s2_c1b:"The C0 displacement initiates the structural sequence. Before compensations can be read, the primary point must be located.",
+  s2_c2tag:"cascade", s2_c2t:"Propagation", s2_c2b:"From C0, the system builds counter-adaptations to maintain the eyes level and preserve upright posture. Each adaptation creates load elsewhere.",
+  s2_c3tag:"consequence", s2_c3t:"System load", s2_c3b:"The cumulative load of compensation chains — not the initial displacement — is where symptoms typically appear. Which is why symptom-level treatment rarely holds.",
+
+  s3_eyebrow:"02 · Structural Axis",
+  s3_title:"The structural axis as reference.",
+  s3_lead:"The cranio-vertebral axis is the reference line from which all structural relationships are measured. C0 sits at its apex — any displacement there propagates downward along the entire reference.",
+  s3_l1t:"Structural axis", s3_l1b:"The vertical organization of head, spine and pelvis — the reference line of the whole system.",
+  s3_l2t:"Compensation chains", s3_l2b:"Adaptive counter-shifts that preserve balance at the cost of asymmetric load distribution.",
+  s3_l3t:"Load distribution", s3_l3b:"How weight, tension and movement are shared — or concentrated — across the structure.",
+  s3_l4t:"Adaptive reserve", s3_l4b:"The remaining capacity to absorb new load before the system produces signals.",
+
+  s4_eyebrow:"03 · Compensation Patterns",
+  s4_title:"How compensation presents.",
+  s4_lead:"If the Primordocciput hypothesis holds, compensation follows predictable patterns. These are not random symptoms — they are the system doing its job under structural constraint.",
+  s4_c1tag:"pattern A", s4_c1t:"Recurrence", s4_c1b:"When the primary displacement is unaddressed, the same signal returns — often same location, same side. The compensation, not the symptom, is the constant.",
+  s4_c2tag:"pattern B", s4_c2t:"Migration", s4_c2b:"Load quieted in one area surfaces in another. The signal moves; the underlying pattern does not.",
+  s4_c3tag:"pattern C", s4_c3t:"Aggregation", s4_c3b:"Sleep quality, focus, neck tension, mood — signals that appear unrelated often share one structural context.",
+  s4_close:"Patterns are the evidence the body provides before it has language for what is wrong.",
+
+  s5_eyebrow:"04 · Observed Associations",
+  s5_title:"What has been observed.",
+  s5_lead:"Over 3,500 documented cases provide a base of structured observation. The following associations have been noted. Each carries an epistemic status — observed, hypothesized, or open.",
+  s5_col1:"Domain", s5_col2:"Observed association", s5_col3:"Status",
+  s5_r1k:"Cervical tension", s5_r1v:"High co-occurrence with C0 displacement in clinical observations. Side-specific and positionally stable.", 
+  s5_r2k:"Load asymmetry", s5_r2v:"Measurable difference in left/right structural load. Consistent across documented cases.",
+  s5_r3k:"Sleep quality", s5_r3v:"Reported changes in sleep following structural correction. Mechanism not established.",
+  s5_r4k:"Cognitive clarity", s5_r4v:"Reported improvement in focus and clarity post-correction. Possible vascular or neurological pathway — under study.",
+  s5_r5k:"Population variability", s5_r5v:"The degree to which C0 is the primary vs. one of several primary points varies. Boundary conditions unknown.",
+  s5_s_obs:"observed", s5_s_hyp:"hypothesis", s5_s_open:"open",
+  s5_note:"<b>Epistemic note:</b> 'observed' means documented across cases — not established by controlled study. All associations require independent verification.",
+
+  s6_eyebrow:"05 · Research Program",
+  s6_title:"A research program, not a doctrine.",
+  s6_lead:"Primordocciput is constructed as an open research program in the Lakatosian sense: a hard core hypothesis surrounded by falsifiable auxiliary claims, organized for testing and revision.",
+  s6_r1tag:"empirical base", s6_r1t:"Case observations", s6_r1b:"3,500+ structured clinical observations form the empirical foundation: cases with initial configuration, intervention record, and follow-up.",
+  s6_r2tag:"hard core", s6_r2t:"The hypothesis", s6_r2b:"C0 is the primary structural displacement point from which systemic asymmetry may originate. Stated as a hypothesis — not an established fact.",
+  s6_r3tag:"testability", s6_r3t:"Falsification criteria", s6_r3b:"Core claims are paired with conditions under which they would be considered false. See the Falsification section.",
+  s6_r4tag:"frontier", s6_r4t:"Open questions", s6_r4b:"Mechanisms, durability of change, population variability, and the boundaries of the hypothesis remain open research problems.",
+  s6_note:"<b>Design requirement:</b> observations and hypotheses are always labeled as such. Scientific humility is structural, not rhetorical.",
+
+  s7_eyebrow:"06 · Falsification Criteria",
+  s7_title:"When the hypothesis would be wrong.",
+  s7_lead:"A hypothesis that cannot be falsified is not a scientific hypothesis. These are the conditions under which the Primordocciput hypothesis would be considered falsified or substantially revised.",
+  s7_f1k:"C0 primacy", s7_f1v:"If rigorous comparative studies showed that correcting C0 displacement produces no greater structural improvement than correcting other junction points, the primacy claim would be falsified.",
+  s7_f2k:"Compensation cascade", s7_f2v:"If documented cases showed that C0 displacement does not precede or predict compensatory patterns in the majority of cases, the cascade model would require fundamental revision.",
+  s7_f3k:"State associations", s7_f3v:"If controlled studies found no correlation between C0 correction and the reported state changes (sleep, focus, energy), those associations would be abandoned.",
+  s7_f4k:"Reproducibility", s7_f4v:"If trained observers could not reliably identify the same C0 displacement pattern across the same cases, the observational basis would be insufficient.",
+  s7_note:"<b>Current status:</b> these criteria have not been met. The hypothesis remains open. Independent research capable of testing these conditions is welcomed.",
+
+  s8_eyebrow:"07 · Open Questions",
+  s8_title:"What we do not know.",
+  s8_lead:"These are the honest frontiers of the hypothesis — questions that are acknowledged, not avoided.",
+  s8_q1:"What is the mechanism linking C0 displacement to systemic asymmetry?",
+  s8_a1:"The most plausible pathways involve proprioceptive disruption, altered afferent signaling from suboccipital musculature, and possible vascular effects at the cranio-cervical junction. None of these mechanisms has been established in controlled research specific to the Primordocciput hypothesis. The mechanism is an open question.",
+  s8_q2:"How durable are structural corrections?",
+  s8_a2:"Clinical observations document change over days to months. Long-term durability — and the conditions under which corrections hold vs. revert — is not yet systematically studied. This is a primary future research target.",
+  s8_q3:"Is C0 the primary point in all cases, or one of several?",
+  s8_a3:"Population variability is observed. In the majority of documented cases, C0 displacement appears primary. But the boundary conditions — body types, developmental histories, trauma patterns — under which another point might take primacy are not defined.",
+  s8_q4:"What is the relationship between Primordocciput and known cranio-cervical pathologies?",
+  s8_a4:"The Primordocciput hypothesis addresses sub-clinical structural configuration — not diagnosed pathology. The relationship to known conditions (cranio-cervical instability, atlas displacement disorders) is a relevant research question that has not yet been formally studied.",
+
+  s9_eyebrow:"08 · Case Observations",
+  s9_title:"Documented observations.",
+  s9_lead:"A structured case library records configurations over time: initial structural pattern, intervention history, observed changes, and follow-up. Cases are organized for comparison, not persuasion.",
+  s9_d1:"documented clinical observations", s9_d2:"years of structured observation",
+  s9_d3:"case structure: initial → intervention → follow-up", s9_d4:"open for ongoing documentation",
+  s9_disc:"<b>Note:</b> cases are observational records. They illustrate the hypothesis; they do not constitute controlled evidence of efficacy.",
+
+  s10_eyebrow:"09 · Future Research",
+  s10_title:"Where the research must go.",
+  s10_lead:"Honest acknowledgment of what is required to elevate this from clinical hypothesis to established framework.",
+  s10_f1n:"Priority 1", s10_f1t:"Interrater reliability study", s10_f1b:"Can trained observers independently identify the same C0 displacement pattern in the same subjects? This is the foundational reproducibility test.",
+  s10_f2n:"Priority 2", s10_f2t:"Controlled correction comparison", s10_f2b:"Does correcting C0 specifically produce greater downstream structural change than correcting other junction points? This directly tests the primacy claim.",
+  s10_f3n:"Priority 3", s10_f3t:"Mechanism investigation", s10_f3b:"Which neurological, vascular, or proprioceptive pathways mediate the observed associations between C0 correction and state changes? Imaging and biomarker studies required.",
+  s10_f4n:"Priority 4", s10_f4t:"Longitudinal durability tracking", s10_f4b:"Systematic follow-up at 3, 6, 12, 24 months to establish whether structural corrections hold, under what conditions, and what predicts reversion.",
+  s10_note:"<b>Open invitation:</b> researchers, clinicians, and institutions interested in testing these hypotheses are invited to reach out at info@primordocciput.org.",
+
+  s11_eyebrow:"10 · Contact",
+  s11_title:"Get in touch.",
+  s11_lead:"For research inquiries, clinical questions, collaboration proposals, or correspondence regarding the hypothesis.",
+  s11_note:"We respond to research inquiries, collaboration proposals, and substantive clinical questions. We do not offer diagnosis or treatment.",
+
+  f_line1:"Primordocciput — a clinical hypothesis under open research.",
+  f_line2:"Developed within the PRIMORDIS research program · part of Anthroponomy.",
+  f_disc:"Research and educational content. Not medical advice. Not a diagnostic tool.",
+  f_rights:"© 2026 Primordocciput. Observations and hypotheses labeled as such."
+},
+
+de:{
+  nav_hypothesis:"Hypothese", nav_compensation:"Kompensation", nav_research:"Forschung", nav_cases:"Fälle", nav_contact:"Kontakt",
+  hero_eyebrow:"Klinische Hypothese · Kraniozervikaler Übergang",
+  hero_title:"Ein Punkt. <em>Systemische</em> Folgen.",
+  hero_sub:"Primordocciput ist eine Hypothese: Am C0 — dem kraniozervikalen Übergang — könnte ein primärer Verschiebungspunkt existieren, von dem aus kompensatorische Asymmetrie sich durch das gesamte Struktursystem ausbreitet.",
+  hero_cta1:"Hypothese lesen", hero_cta2:"Forschungsprogramm",
+  hero_note:"Eine offene Forschungshypothese. Keine Diagnose. Kein Behandlungsprotokoll.",
+  ax_c0a:"primäre Verschiebung", ax_c0b:"(Hypothese)", ax_axis:"strukturelle Achse", ax_comp:"Kompensationskette",
+  ax_scheme:"PRIMORDOCCIPUT · C0-Modell",
+  hero_fig:"Schematisches Modell — keine anatomische Darstellung.",
+
+  s2_eyebrow:"01 · Die Hypothese",
+  s2_title:"Die Primordocciput-Hypothese.",
+  s2_lead:"Die meisten strukturellen Interventionen adressieren nachgelagerte Kompensationen. Die Primordocciput-Hypothese schlägt einen anderen Ausgangspunkt vor: eine primäre Verschiebung am kraniozervikalen Übergang, die alles Folgende vorausgeht und organisiert.",
+  s2_h_label:"Kernaussage",
+  s2_h_quote:"Am C0 — dem atlantookzipitalen Gelenk — könnte eine primäre strukturelle Verschiebung als organisierender Ursprung systemischer Asymmetrie, Belastungsmuster und adaptiver Kompensationsketten im gesamten Körper wirken.",
+  s2_h_sub:"Diese Verschiebung ist nicht der einzige Faktor. Sie wird als primärer Faktor vorgeschlagen — der Punkt, von dem aus kaskadenartige Anpassungen sowohl notwendig als auch vorhersagbar werden. Die Hypothese ist falsifizierbar und ihre Grenzen werden aktiv erforscht.",
+  s2_h_status:"Epistemischer Status: klinische Hypothese unter Untersuchung · kein gesicherter Fakt",
+  s2_c1tag:"Ursprung", s2_c1t:"Primäre Verschiebung", s2_c1b:"Die C0-Verschiebung initiiert die strukturelle Sequenz. Bevor Kompensationen gelesen werden können, muss der primäre Punkt lokalisiert werden.",
+  s2_c2tag:"Kaskade", s2_c2t:"Ausbreitung", s2_c2b:"Von C0 aus baut das System Gegenanpassungen auf, um die Augen waagerecht zu halten und die aufrechte Haltung zu bewahren. Jede Anpassung erzeugt Last anderswo.",
+  s2_c3tag:"Konsequenz", s2_c3t:"Systembelastung", s2_c3b:"Die kumulierte Last der Kompensationsketten — nicht die initiale Verschiebung — ist der Ort, an dem Symptome typischerweise auftreten.",
+
+  s3_eyebrow:"02 · Strukturelle Achse",
+  s3_title:"Die strukturelle Achse als Referenz.",
+  s3_lead:"Die kraniovertebrale Achse ist die Referenzlinie, von der aus alle strukturellen Beziehungen gemessen werden. C0 befindet sich an ihrer Spitze — jede Verschiebung dort breitet sich entlang der gesamten Referenz nach unten aus.",
+  s3_l1t:"Strukturelle Achse", s3_l1b:"Die vertikale Organisation von Kopf, Wirbelsäule und Becken — die Referenzlinie des gesamten Systems.",
+  s3_l2t:"Kompensationsketten", s3_l2b:"Adaptive Gegenverschiebungen, die das Gleichgewicht um den Preis asymmetrischer Lastverteilung erhalten.",
+  s3_l3t:"Lastverteilung", s3_l3b:"Wie Gewicht, Spannung und Bewegung in der Struktur geteilt — oder konzentriert — werden.",
+  s3_l4t:"Adaptive Reserve", s3_l4b:"Die verbleibende Kapazität, neue Last zu absorbieren, bevor das System Signale produziert.",
+
+  s4_eyebrow:"03 · Kompensationsmuster",
+  s4_title:"Wie Kompensation sich zeigt.",
+  s4_lead:"Wenn die Primordocciput-Hypothese zutrifft, folgt die Kompensation vorhersagbaren Mustern. Dies sind keine zufälligen Symptome — es ist das System, das seine Arbeit unter strukturellen Einschränkungen tut.",
+  s4_c1tag:"Muster A", s4_c1t:"Wiederkehr", s4_c1b:"Wenn die primäre Verschiebung unbehandelt bleibt, kehrt dasselbe Signal zurück — oft am selben Ort, auf derselben Seite.",
+  s4_c2tag:"Muster B", s4_c2t:"Migration", s4_c2b:"In einem Bereich beruhigte Last taucht in einem anderen auf. Das Signal wandert; das zugrundeliegende Muster nicht.",
+  s4_c3tag:"Muster C", s4_c3t:"Aggregation", s4_c3b:"Schlafqualität, Fokus, Nackenspannung, Stimmung — scheinbar unzusammenhängende Signale teilen oft einen strukturellen Kontext.",
+  s4_close:"Muster sind die Beweise, die der Körper liefert, bevor er Sprache für das Falsche gefunden hat.",
+
+  s5_eyebrow:"04 · Beobachtete Assoziationen",
+  s5_title:"Was beobachtet wurde.",
+  s5_lead:"Über 3.500 dokumentierte Fälle bilden eine Basis strukturierter Beobachtung. Die folgenden Assoziationen wurden festgestellt. Jede trägt einen epistemischen Status — beobachtet, hypothetisch oder offen.",
+  s5_col1:"Bereich", s5_col2:"Beobachtete Assoziation", s5_col3:"Status",
+  s5_r1k:"Zervikale Spannung", s5_r1v:"Häufiges gemeinsames Auftreten mit C0-Verschiebung in klinischen Beobachtungen. Seitenspezifisch und positional stabil.",
+  s5_r2k:"Lastasymmetrie", s5_r2v:"Messbare Differenz in der links/rechts strukturellen Last. Konsistent in dokumentierten Fällen.",
+  s5_r3k:"Schlafqualität", s5_r3v:"Berichtete Veränderungen des Schlafs nach struktureller Korrektur. Mechanismus nicht etabliert.",
+  s5_r4k:"Kognitive Klarheit", s5_r4v:"Berichtete Verbesserung von Fokus und Klarheit nach Korrektur. Möglicher vaskulärer oder neurologischer Weg — in Untersuchung.",
+  s5_r5k:"Populationsvariabilität", s5_r5v:"Der Grad, in dem C0 der primäre vs. einer von mehreren primären Punkten ist, variiert. Randbedingungen unbekannt.",
+  s5_s_obs:"beobachtet", s5_s_hyp:"Hypothese", s5_s_open:"offen",
+  s5_note:"<b>Epistemischer Hinweis:</b> 'Beobachtet' bedeutet über Fälle dokumentiert — nicht durch kontrollierte Studie etabliert. Alle Assoziationen erfordern unabhängige Verifikation.",
+
+  s6_eyebrow:"05 · Forschungsprogramm",
+  s6_title:"Ein Forschungsprogramm, keine Doktrin.",
+  s6_lead:"Primordocciput ist als offenes Forschungsprogramm im Lakatosschen Sinne konstruiert: ein harter Kern-Hypothese umgeben von falsifizierbaren Hilfshypothesen, organisiert für Prüfung und Revision.",
+  s6_r1tag:"empirische Basis", s6_r1t:"Fallbeobachtungen", s6_r1b:"3.500+ strukturierte klinische Beobachtungen bilden das empirische Fundament: Fälle mit initialer Konfiguration, Interventionsprotokoll und Nachverfolgung.",
+  s6_r2tag:"harter Kern", s6_r2t:"Die Hypothese", s6_r2b:"C0 ist der primäre strukturelle Verschiebungspunkt, von dem systemische Asymmetrie ausgehen könnte. Als Hypothese formuliert — kein gesicherter Fakt.",
+  s6_r3tag:"Prüfbarkeit", s6_r3t:"Falsifikationskriterien", s6_r3b:"Kernaussagen sind mit Bedingungen verknüpft, unter denen sie als falsch gelten würden.",
+  s6_r4tag:"Grenzbereich", s6_r4t:"Offene Fragen", s6_r4b:"Mechanismen, Dauerhaftigkeit von Veränderungen, Populationsvariabilität und die Grenzen der Hypothese bleiben offene Forschungsprobleme.",
+  s6_note:"<b>Konstruktionsanforderung:</b> Beobachtungen und Hypothesen werden stets als solche gekennzeichnet. Wissenschaftliche Bescheidenheit ist strukturell, nicht rhetorisch.",
+
+  s7_eyebrow:"06 · Falsifikationskriterien",
+  s7_title:"Wann die Hypothese falsch wäre.",
+  s7_lead:"Eine Hypothese, die nicht falsifiziert werden kann, ist keine wissenschaftliche Hypothese. Dies sind die Bedingungen, unter denen die Primordocciput-Hypothese als falsifiziert oder wesentlich revidiert gelten würde.",
+  s7_f1k:"C0-Primat", s7_f1v:"Wenn rigorose Vergleichsstudien zeigten, dass die Korrektur der C0-Verschiebung keine größere strukturelle Verbesserung erzeugt als die Korrektur anderer Übergangspunkte, wäre die Primat-Behauptung falsifiziert.",
+  s7_f2k:"Kompensationskaskade", s7_f2v:"Wenn dokumentierte Fälle zeigten, dass C0-Verschiebung in der Mehrheit der Fälle kompensatorische Muster nicht vorausgeht oder vorhersagt, müsste das Kaskadenmodell grundlegend revidiert werden.",
+  s7_f3k:"Zustandsassoziationen", s7_f3v:"Wenn kontrollierte Studien keine Korrelation zwischen C0-Korrektur und den berichteten Zustandsveränderungen (Schlaf, Fokus, Energie) fänden, würden diese Assoziationen aufgegeben.",
+  s7_f4k:"Reproduzierbarkeit", s7_f4v:"Wenn ausgebildete Beobachter dasselbe C0-Verschiebungsmuster in denselben Fällen nicht zuverlässig identifizieren könnten, wäre die Beobachtungsbasis unzureichend.",
+  s7_note:"<b>Aktueller Status:</b> Diese Kriterien wurden nicht erfüllt. Die Hypothese bleibt offen. Unabhängige Forschung, die diese Bedingungen testen kann, ist willkommen.",
+
+  s8_eyebrow:"07 · Offene Fragen",
+  s8_title:"Was wir nicht wissen.",
+  s8_lead:"Dies sind die ehrlichen Grenzen der Hypothese — Fragen, die anerkannt, nicht umgangen werden.",
+  s8_q1:"Was ist der Mechanismus, der C0-Verschiebung mit systemischer Asymmetrie verbindet?",
+  s8_a1:"Die plausibelsten Wege beinhalten propriozeptive Störungen, veränderte afferente Signale aus der subokzipitalen Muskulatur und mögliche vaskuläre Effekte am kraniozervikalen Übergang. Keiner dieser Mechanismen wurde in kontrollierter Forschung spezifisch für die Primordocciput-Hypothese etabliert.",
+  s8_q2:"Wie dauerhaft sind strukturelle Korrekturen?",
+  s8_a2:"Klinische Beobachtungen dokumentieren Veränderungen über Tage bis Monate. Langfristige Dauerhaftigkeit — und die Bedingungen, unter denen Korrekturen halten vs. reversieren — ist noch nicht systematisch untersucht.",
+  s8_q3:"Ist C0 in allen Fällen der primäre Punkt, oder einer von mehreren?",
+  s8_a3:"Populationsvariabilität wird beobachtet. In der Mehrheit dokumentierter Fälle erscheint die C0-Verschiebung primär. Aber die Randbedingungen — Körpertypen, Entwicklungsgeschichten, Traumamuster — unter denen ein anderer Punkt Primat übernehmen könnte, sind nicht definiert.",
+  s8_q4:"Was ist die Beziehung zwischen Primordocciput und bekannten kraniozervikalen Pathologien?",
+  s8_a4:"Die Primordocciput-Hypothese adressiert subklinische strukturelle Konfiguration — keine diagnostizierte Pathologie. Die Beziehung zu bekannten Zuständen ist eine relevante Forschungsfrage, die noch nicht formal untersucht wurde.",
+
+  s9_eyebrow:"08 · Fallbeobachtungen",
+  s9_title:"Dokumentierte Beobachtungen.",
+  s9_lead:"Eine strukturierte Fallbibliothek zeichnet Konfigurationen über die Zeit auf: initiales Strukturmuster, Interventionsgeschichte, beobachtete Veränderungen und Nachverfolgung.",
+  s9_d1:"dokumentierte klinische Beobachtungen", s9_d2:"Jahre strukturierter Beobachtung",
+  s9_d3:"Fallstruktur: initial → Intervention → Nachverfolgung", s9_d4:"offen für laufende Dokumentation",
+  s9_disc:"<b>Hinweis:</b> Fälle sind Beobachtungsaufzeichnungen. Sie illustrieren die Hypothese; sie stellen keine kontrollierten Wirksamkeitsbelege dar.",
+
+  s10_eyebrow:"09 · Zukünftige Forschung",
+  s10_title:"Wohin die Forschung muss.",
+  s10_lead:"Ehrliche Anerkennung dessen, was erforderlich ist, um dies von einer klinischen Hypothese zu einem etablierten Rahmen zu heben.",
+  s10_f1n:"Priorität 1", s10_f1t:"Interrater-Reliabilitätsstudie", s10_f1b:"Können ausgebildete Beobachter unabhängig dasselbe C0-Verschiebungsmuster in denselben Probanden identifizieren? Dies ist der grundlegende Reproduzierbarkeitstest.",
+  s10_f2n:"Priorität 2", s10_f2t:"Kontrollierter Korrekturvergleich", s10_f2b:"Erzeugt die spezifische Korrektur von C0 größere strukturelle Downstream-Veränderungen als die Korrektur anderer Übergangspunkte? Dies testet direkt die Primat-Behauptung.",
+  s10_f3n:"Priorität 3", s10_f3t:"Mechanismusuntersuchung", s10_f3b:"Welche neurologischen, vaskulären oder propriozeptiven Wege vermitteln die beobachteten Assoziationen zwischen C0-Korrektur und Zustandsveränderungen?",
+  s10_f4n:"Priorität 4", s10_f4t:"Longitudinale Dauerhaftigkeitsverfolgung", s10_f4b:"Systematische Nachverfolgung bei 3, 6, 12, 24 Monaten, um festzustellen, ob strukturelle Korrekturen halten, unter welchen Bedingungen und was Reversion vorhersagt.",
+  s10_note:"<b>Offene Einladung:</b> Forscher, Kliniker und Institutionen, die diese Hypothesen testen möchten, sind eingeladen, sich unter info@primordocciput.org zu melden.",
+
+  s11_eyebrow:"10 · Kontakt",
+  s11_title:"Kontakt aufnehmen.",
+  s11_lead:"Für Forschungsanfragen, klinische Fragen, Kooperationsvorschläge oder Korrespondenz zur Hypothese.",
+  s11_note:"Wir antworten auf Forschungsanfragen, Kooperationsvorschläge und substantielle klinische Fragen. Wir bieten keine Diagnose oder Behandlung an.",
+
+  f_line1:"Primordocciput — eine klinische Hypothese unter offener Forschung.",
+  f_line2:"Im Rahmen des PRIMORDIS-Forschungsprogramms · Teil der Anthroponomie.",
+  f_disc:"Forschungs- und Bildungsinhalt. Keine medizinische Beratung. Kein Diagnosewerkzeug.",
+  f_rights:"© 2026 Primordocciput. Beobachtungen und Hypothesen als solche gekennzeichnet."
+},
+
+ru:{
+  nav_hypothesis:"Гипотеза", nav_compensation:"Компенсация", nav_research:"Исследования", nav_cases:"Случаи", nav_contact:"Контакт",
+  hero_eyebrow:"Клиническая гипотеза · Кранио-цервикальный переход",
+  hero_title:"Одна точка. <em>Системные</em> последствия.",
+  hero_sub:"Primordocciput — гипотеза: в точке C0 — кранио-цервикальном переходе — существует первичное смещение, из которого берёт начало компенсаторная асимметрия, распространяющаяся по всей структурной системе.",
+  hero_cta1:"Читать гипотезу", hero_cta2:"Программа исследований",
+  hero_note:"Открытая исследовательская гипотеза. Не диагноз. Не протокол лечения.",
+  ax_c0a:"первичное смещение", ax_c0b:"(гипотеза)", ax_axis:"структурная ось", ax_comp:"цепь компенсаций",
+  ax_scheme:"PRIMORDOCCIPUT · модель C0",
+  hero_fig:"Схематическая модель — не анатомическое изображение.",
+
+  s2_eyebrow:"01 · Гипотеза",
+  s2_title:"Гипотеза Primordocciput.",
+  s2_lead:"Большинство структурных вмешательств адресуют нижестоящие компенсации. Гипотеза Primordocciput предлагает иную отправную точку: первичное смещение в кранио-цервикальном переходе, которое предшествует всему нижележащему и организует его.",
+  s2_h_label:"Ключевое утверждение",
+  s2_h_quote:"В точке C0 — атланто-окципитальном суставе — первичное структурное смещение может выступать организующим истоком системной асимметрии, паттернов нагрузки и адаптивных цепей компенсаций по всему телу.",
+  s2_h_sub:"Это смещение — не единственный фактор. Оно предполагается как первичный — точка, из которой каскадные адаптации становятся одновременно необходимыми и предсказуемыми. Гипотеза фальсифицируема, её границы активно исследуются.",
+  s2_h_status:"Эпистемический статус: клиническая гипотеза в процессе изучения · не установленный факт",
+  s2_c1tag:"происхождение", s2_c1t:"Первичное смещение", s2_c1b:"Смещение C0 инициирует структурную последовательность. Прежде чем читать компенсации, необходимо локализовать первичную точку.",
+  s2_c2tag:"каскад", s2_c2t:"Распространение", s2_c2b:"От C0 система выстраивает контр-адаптации, чтобы удержать глаза горизонтально и сохранить вертикальное положение. Каждая адаптация создаёт нагрузку в другом месте.",
+  s2_c3tag:"последствие", s2_c3t:"Системная нагрузка", s2_c3b:"Накопленная нагрузка цепей компенсаций — а не исходное смещение — это место, где симптомы, как правило, и появляются.",
+
+  s3_eyebrow:"02 · Структурная ось",
+  s3_title:"Структурная ось как референс.",
+  s3_lead:"Кранио-вертебральная ось — это референсная линия, от которой измеряются все структурные отношения. C0 находится у её вершины — любое смещение там распространяется вниз по всему референсу.",
+  s3_l1t:"Структурная ось", s3_l1b:"Вертикальная организация головы, позвоночника и таза — референсная линия всей системы.",
+  s3_l2t:"Цепи компенсаций", s3_l2b:"Адаптивные контрсмещения, сохраняющие баланс ценой асимметричного распределения нагрузки.",
+  s3_l3t:"Распределение нагрузки", s3_l3b:"Как вес, напряжение и движение распределяются — или концентрируются — в структуре.",
+  s3_l4t:"Адаптивный резерв", s3_l4b:"Оставшаяся способность поглощать новую нагрузку до того, как система начнёт подавать сигналы.",
+
+  s4_eyebrow:"03 · Паттерны компенсации",
+  s4_title:"Как компенсация проявляется.",
+  s4_lead:"Если гипотеза Primordocciput верна, компенсация следует предсказуемым паттернам. Это не случайные симптомы — это система, делающая своё дело в условиях структурного ограничения.",
+  s4_c1tag:"паттерн A", s4_c1t:"Рецидив", s4_c1b:"Пока первичное смещение не устранено, тот же сигнал возвращается — часто в том же месте, на той же стороне.",
+  s4_c2tag:"паттерн B", s4_c2t:"Миграция", s4_c2b:"Нагрузка, утихшая в одной области, проявляется в другой. Сигнал перемещается; паттерн — нет.",
+  s4_c3tag:"паттерн C", s4_c3t:"Агрегация", s4_c3b:"Качество сна, фокус, напряжение в шее, настроение — кажущиеся несвязанными сигналы часто имеют один структурный контекст.",
+  s4_close:"Паттерны — это свидетельства, которые тело предоставляет прежде, чем у него появился язык для того, что идёт не так.",
+
+  s5_eyebrow:"04 · Наблюдаемые ассоциации",
+  s5_title:"Что было наблюдено.",
+  s5_lead:"Более 3 500 документированных случаев формируют базу структурированных наблюдений. Следующие ассоциации были зафиксированы. Каждая несёт эпистемический статус — наблюдаемая, гипотетическая или открытая.",
+  s5_col1:"Область", s5_col2:"Наблюдаемая ассоциация", s5_col3:"Статус",
+  s5_r1k:"Цервикальное напряжение", s5_r1v:"Высокое совместное встречание со смещением C0 в клинических наблюдениях. Сторонне-специфичное и позиционно стабильное.",
+  s5_r2k:"Асимметрия нагрузки", s5_r2v:"Измеримое различие в левой/правой структурной нагрузке. Согласовано в документированных случаях.",
+  s5_r3k:"Качество сна", s5_r3v:"Сообщаемые изменения сна после структурной коррекции. Механизм не установлен.",
+  s5_r4k:"Когнитивная ясность", s5_r4v:"Сообщаемое улучшение фокуса и ясности после коррекции. Возможный сосудистый или неврологический путь — в процессе изучения.",
+  s5_r5k:"Вариативность популяции", s5_r5v:"Степень, в которой C0 является первичной vs. одной из нескольких первичных точек, варьируется. Граничные условия неизвестны.",
+  s5_s_obs:"наблюдаемо", s5_s_hyp:"гипотеза", s5_s_open:"открыто",
+  s5_note:"<b>Эпистемическое примечание:</b> «наблюдаемо» означает документированное в случаях — не установленное контролируемым исследованием. Все ассоциации требуют независимой верификации.",
+
+  s6_eyebrow:"05 · Программа исследований",
+  s6_title:"Программа исследований, а не доктрина.",
+  s6_lead:"Primordocciput построен как открытая исследовательская программа в лакатосовском смысле: жёсткое ядро гипотезы в окружении фальсифицируемых вспомогательных утверждений, организованных для проверки и пересмотра.",
+  s6_r1tag:"эмпирическая база", s6_r1t:"Наблюдения случаев", s6_r1b:"3 500+ структурированных клинических наблюдений формируют эмпирический фундамент: случаи с начальной конфигурацией, протоколом вмешательств и катамнезом.",
+  s6_r2tag:"жёсткое ядро", s6_r2t:"Гипотеза", s6_r2b:"C0 — первичная точка структурного смещения, из которой может происходить системная асимметрия. Сформулирована как гипотеза — не установленный факт.",
+  s6_r3tag:"проверяемость", s6_r3t:"Критерии фальсификации", s6_r3b:"Ключевые утверждения сопряжены с условиями, при которых они считались бы ложными.",
+  s6_r4tag:"фронтир", s6_r4t:"Открытые вопросы", s6_r4b:"Механизмы, устойчивость изменений, вариативность популяции и границы гипотезы остаются открытыми исследовательскими проблемами.",
+  s6_note:"<b>Требование конструкции:</b> наблюдения и гипотезы всегда маркируются как таковые. Научная скромность структурна, а не риторична.",
+
+  s7_eyebrow:"06 · Критерии фальсификации",
+  s7_title:"Когда гипотеза была бы неверна.",
+  s7_lead:"Гипотеза, которую невозможно фальсифицировать — не научная гипотеза. Вот условия, при которых гипотеза Primordocciput считалась бы фальсифицированной или существенно пересмотренной.",
+  s7_f1k:"Первичность C0", s7_f1v:"Если строгие сравнительные исследования показали бы, что коррекция смещения C0 не производит большего структурного улучшения, чем коррекция других переходных точек, утверждение о первичности было бы фальсифицировано.",
+  s7_f2k:"Каскад компенсаций", s7_f2v:"Если документированные случаи показали бы, что смещение C0 не предшествует и не предсказывает компенсаторные паттерны в большинстве случаев, каскадная модель потребовала бы фундаментального пересмотра.",
+  s7_f3k:"Ассоциации состояния", s7_f3v:"Если контролируемые исследования не нашли бы корреляции между коррекцией C0 и сообщаемыми изменениями состояния (сон, фокус, энергия), эти ассоциации были бы оставлены.",
+  s7_f4k:"Воспроизводимость", s7_f4v:"Если обученные наблюдатели не могли бы надёжно идентифицировать одинаковый паттерн смещения C0 в одних и тех же случаях, наблюдательная база была бы недостаточной.",
+  s7_note:"<b>Текущий статус:</b> эти критерии не выполнены. Гипотеза остаётся открытой. Независимые исследования, способные проверить эти условия, приветствуются.",
+
+  s8_eyebrow:"07 · Открытые вопросы",
+  s8_title:"Чего мы не знаем.",
+  s8_lead:"Это честные границы гипотезы — вопросы, которые признаются, а не обходятся.",
+  s8_q1:"Каков механизм, связывающий смещение C0 с системной асимметрией?",
+  s8_a1:"Наиболее правдоподобные пути включают проприоцептивные нарушения, изменённую афферентную сигнализацию из субокципитальной мускулатуры и возможные сосудистые эффекты в кранио-цервикальном переходе. Ни один из этих механизмов не установлен в контролируемых исследованиях, специфичных для гипотезы Primordocciput.",
+  s8_q2:"Насколько устойчивы структурные коррекции?",
+  s8_a2:"Клинические наблюдения документируют изменения на протяжении дней и месяцев. Долгосрочная устойчивость — и условия, при которых коррекции сохраняются vs. обращаются — ещё не изучена систематически.",
+  s8_q3:"Является ли C0 первичной точкой во всех случаях или одной из нескольких?",
+  s8_a3:"Вариативность популяции наблюдается. В большинстве документированных случаев смещение C0 представляется первичным. Но граничные условия — типы телосложения, истории развития, паттерны травм — при которых другая точка может взять первичность, не определены.",
+  s8_q4:"Какова связь между Primordocciput и известными кранио-цервикальными патологиями?",
+  s8_a4:"Гипотеза Primordocciput адресует субклиническую структурную конфигурацию — не диагностированную патологию. Связь с известными состояниями — релевантный исследовательский вопрос, который ещё не изучался формально.",
+
+  s9_eyebrow:"08 · Наблюдения случаев",
+  s9_title:"Документированные наблюдения.",
+  s9_lead:"Структурированная библиотека случаев фиксирует конфигурации во времени: начальный структурный паттерн, историю вмешательств, наблюдаемые изменения и катамнез.",
+  s9_d1:"документированных клинических наблюдений", s9_d2:"лет структурированных наблюдений",
+  s9_d3:"структура случая: начальный → вмешательство → катамнез", s9_d4:"открыто для текущей документации",
+  s9_disc:"<b>Примечание:</b> случаи — это наблюдательные записи. Они иллюстрируют гипотезу; они не являются контролируемыми свидетельствами эффективности.",
+
+  s10_eyebrow:"09 · Будущие исследования",
+  s10_title:"Куда должны идти исследования.",
+  s10_lead:"Честное признание того, что необходимо, чтобы перевести это из клинической гипотезы в установленную систему.",
+  s10_f1n:"Приоритет 1", s10_f1t:"Исследование межоценочной надёжности", s10_f1b:"Могут ли обученные наблюдатели независимо идентифицировать один и тот же паттерн смещения C0 у одних и тех же субъектов? Это основополагающий тест воспроизводимости.",
+  s10_f2n:"Приоритет 2", s10_f2t:"Контролируемое сравнение коррекций", s10_f2b:"Производит ли специфическая коррекция C0 большие структурные нижестоящие изменения, чем коррекция других переходных точек? Это непосредственно проверяет утверждение о первичности.",
+  s10_f3n:"Приоритет 3", s10_f3t:"Исследование механизма", s10_f3b:"Какие неврологические, сосудистые или проприоцептивные пути опосредуют наблюдаемые ассоциации между коррекцией C0 и изменениями состояния?",
+  s10_f4n:"Приоритет 4", s10_f4t:"Продольное отслеживание устойчивости", s10_f4b:"Систематический катамнез через 3, 6, 12, 24 месяца, чтобы установить, сохраняются ли структурные коррекции, при каких условиях и что предсказывает возврат.",
+  s10_note:"<b>Открытое приглашение:</b> исследователи, клиницисты и учреждения, заинтересованные в проверке этих гипотез, приглашаются обращаться по адресу info@primordocciput.org.",
+
+  s11_eyebrow:"10 · Контакт",
+  s11_title:"Свяжитесь с нами.",
+  s11_lead:"Для исследовательских запросов, клинических вопросов, предложений о сотрудничестве или переписки по гипотезе.",
+  s11_note:"Мы отвечаем на исследовательские запросы, предложения о сотрудничестве и содержательные клинические вопросы. Мы не предоставляем диагностику или лечение.",
+
+  f_line1:"Primordocciput — клиническая гипотеза в открытом исследовании.",
+  f_line2:"Разработана в рамках исследовательской программы PRIMORDIS · часть Антропономии.",
+  f_disc:"Исследовательский и образовательный контент. Не медицинский совет. Не диагностический инструмент.",
+  f_rights:"© 2026 Primordocciput. Наблюдения и гипотезы маркированы как таковые."
+},
+
+es:{
+  nav_hypothesis:"Hipótesis", nav_compensation:"Compensación", nav_research:"Investigación", nav_cases:"Casos", nav_contact:"Contacto",
+  hero_eyebrow:"Hipótesis clínica · Unión craneocervical",
+  hero_title:"Un punto. Consecuencias <em>sistémicas</em>.",
+  hero_sub:"Primordocciput es una hipótesis: en C0 — la unión craneocervical — existe un punto de desplazamiento primario desde el cual la asimetría compensatoria se propaga por todo el sistema estructural.",
+  hero_cta1:"Leer la hipótesis", hero_cta2:"Programa de investigación",
+  hero_note:"Una hipótesis de investigación abierta. No es un diagnóstico. No es un protocolo de tratamiento.",
+  ax_c0a:"desplazamiento primario", ax_c0b:"(hipótesis)", ax_axis:"eje estructural", ax_comp:"cadena de compensación",
+  ax_scheme:"PRIMORDOCCIPUT · modelo C0",
+  hero_fig:"Modelo esquemático — no una representación anatómica.",
+
+  s2_eyebrow:"01 · La hipótesis",
+  s2_title:"La hipótesis Primordocciput.",
+  s2_lead:"La mayoría de las intervenciones estructurales abordan compensaciones secundarias. La hipótesis Primordocciput propone un punto de partida diferente: un desplazamiento primario en la unión craneocervical que precede y organiza todo lo que está por debajo.",
+  s2_h_label:"Declaración central",
+  s2_h_quote:"En C0 — la articulación atlanto-occipital — un desplazamiento estructural primario puede actuar como el origen organizador de la asimetría sistémica, los patrones de carga y las cadenas de compensación adaptativa en todo el cuerpo.",
+  s2_h_sub:"Este desplazamiento no es el único factor. Se propone como el primario — el punto desde el cual las adaptaciones en cascada se vuelven tanto necesarias como predecibles. La hipótesis es falsificable y sus límites están bajo estudio activo.",
+  s2_h_status:"Estado epistémico: hipótesis clínica en estudio · no un hecho establecido",
+  s2_c1tag:"origen", s2_c1t:"Desplazamiento primario", s2_c1b:"El desplazamiento C0 inicia la secuencia estructural. Antes de que las compensaciones puedan leerse, se debe localizar el punto primario.",
+  s2_c2tag:"cascada", s2_c2t:"Propagación", s2_c2b:"Desde C0, el sistema construye contra-adaptaciones para mantener los ojos nivelados y preservar la postura erguida. Cada adaptación crea carga en otro lugar.",
+  s2_c3tag:"consecuencia", s2_c3t:"Carga sistémica", s2_c3b:"La carga acumulada de las cadenas de compensación — no el desplazamiento inicial — es donde los síntomas típicamente aparecen.",
+
+  s3_eyebrow:"02 · Eje estructural",
+  s3_title:"El eje estructural como referencia.",
+  s3_lead:"El eje craneovértebral es la línea de referencia desde la cual se miden todas las relaciones estructurales. C0 se encuentra en su vértice — cualquier desplazamiento allí se propaga hacia abajo a lo largo de toda la referencia.",
+  s3_l1t:"Eje estructural", s3_l1b:"La organización vertical de cabeza, columna y pelvis — la línea de referencia de todo el sistema.",
+  s3_l2t:"Cadenas de compensación", s3_l2b:"Contra-desplazamientos adaptativos que preservan el equilibrio a costa de una distribución asimétrica de la carga.",
+  s3_l3t:"Distribución de carga", s3_l3b:"Cómo el peso, la tensión y el movimiento se distribuyen — o concentran — en la estructura.",
+  s3_l4t:"Reserva adaptativa", s3_l4b:"La capacidad restante para absorber nueva carga antes de que el sistema produzca señales.",
+
+  s4_eyebrow:"03 · Patrones de compensación",
+  s4_title:"Cómo se presenta la compensación.",
+  s4_lead:"Si la hipótesis Primordocciput es válida, la compensación sigue patrones predecibles. No son síntomas aleatorios — es el sistema haciendo su trabajo bajo restricciones estructurales.",
+  s4_c1tag:"patrón A", s4_c1t:"Recurrencia", s4_c1b:"Cuando el desplazamiento primario no se aborda, la misma señal regresa — a menudo en el mismo lugar, en el mismo lado.",
+  s4_c2tag:"patrón B", s4_c2t:"Migración", s4_c2b:"La carga calmada en un área surge en otra. La señal se mueve; el patrón subyacente no.",
+  s4_c3tag:"patrón C", s4_c3t:"Agregación", s4_c3b:"Calidad del sueño, enfoque, tensión cervical, humor — señales aparentemente no relacionadas a menudo comparten un contexto estructural.",
+  s4_close:"Los patrones son la evidencia que el cuerpo proporciona antes de tener lenguaje para lo que está mal.",
+
+  s5_eyebrow:"04 · Asociaciones observadas",
+  s5_title:"Lo que se ha observado.",
+  s5_lead:"Más de 3.500 casos documentados forman una base de observación estructurada. Se han observado las siguientes asociaciones. Cada una lleva un estado epistémico — observado, hipotético o abierto.",
+  s5_col1:"Dominio", s5_col2:"Asociación observada", s5_col3:"Estado",
+  s5_r1k:"Tensión cervical", s5_r1v:"Alta co-ocurrencia con desplazamiento C0 en observaciones clínicas. Específica del lado y posicionalmente estable.",
+  s5_r2k:"Asimetría de carga", s5_r2v:"Diferencia medible en la carga estructural izquierda/derecha. Consistente en casos documentados.",
+  s5_r3k:"Calidad del sueño", s5_r3v:"Cambios reportados en el sueño tras la corrección estructural. Mecanismo no establecido.",
+  s5_r4k:"Claridad cognitiva", s5_r4v:"Mejora reportada en enfoque y claridad post-corrección. Posible vía vascular o neurológica — en estudio.",
+  s5_r5k:"Variabilidad poblacional", s5_r5v:"El grado en que C0 es el punto primario vs. uno de varios varía. Condiciones límite desconocidas.",
+  s5_s_obs:"observado", s5_s_hyp:"hipótesis", s5_s_open:"abierto",
+  s5_note:"<b>Nota epistémica:</b> 'observado' significa documentado en casos — no establecido por estudio controlado. Todas las asociaciones requieren verificación independiente.",
+
+  s6_eyebrow:"05 · Programa de investigación",
+  s6_title:"Un programa de investigación, no una doctrina.",
+  s6_lead:"Primordocciput está construido como un programa de investigación abierto en el sentido lakatosiano: una hipótesis de núcleo duro rodeada de afirmaciones auxiliares falsificables, organizadas para prueba y revisión.",
+  s6_r1tag:"base empírica", s6_r1t:"Observaciones de casos", s6_r1b:"3.500+ observaciones clínicas estructuradas forman la base empírica: casos con configuración inicial, registro de intervenciones y seguimiento.",
+  s6_r2tag:"núcleo duro", s6_r2t:"La hipótesis", s6_r2b:"C0 es el punto de desplazamiento estructural primario desde el cual puede originarse la asimetría sistémica. Declarado como hipótesis — no como hecho establecido.",
+  s6_r3tag:"falsificabilidad", s6_r3t:"Criterios de falsificación", s6_r3b:"Las afirmaciones principales están emparejadas con condiciones bajo las cuales serían consideradas falsas.",
+  s6_r4tag:"frontera", s6_r4t:"Preguntas abiertas", s6_r4b:"Mecanismos, durabilidad del cambio, variabilidad poblacional y los límites de la hipótesis permanecen como problemas de investigación abiertos.",
+  s6_note:"<b>Requisito de diseño:</b> las observaciones e hipótesis siempre se etiquetan como tales. La humildad científica es estructural, no retórica.",
+
+  s7_eyebrow:"06 · Criterios de falsificación",
+  s7_title:"Cuándo la hipótesis estaría equivocada.",
+  s7_lead:"Una hipótesis que no puede ser falsificada no es una hipótesis científica. Estas son las condiciones bajo las cuales la hipótesis Primordocciput sería considerada falsificada o sustancialmente revisada.",
+  s7_f1k:"Primacía de C0", s7_f1v:"Si estudios comparativos rigurosos mostraran que corregir el desplazamiento C0 no produce mayor mejora estructural que corregir otros puntos de unión, la afirmación de primacía quedaría falsificada.",
+  s7_f2k:"Cascada de compensación", s7_f2v:"Si los casos documentados mostraran que el desplazamiento C0 no precede ni predice patrones compensatorios en la mayoría de los casos, el modelo en cascada requeriría revisión fundamental.",
+  s7_f3k:"Asociaciones de estado", s7_f3v:"Si estudios controlados no encontraran correlación entre la corrección C0 y los cambios de estado reportados (sueño, enfoque, energía), esas asociaciones serían abandonadas.",
+  s7_f4k:"Reproducibilidad", s7_f4v:"Si observadores entrenados no pudieran identificar de manera confiable el mismo patrón de desplazamiento C0 en los mismos casos, la base observacional sería insuficiente.",
+  s7_note:"<b>Estado actual:</b> estos criterios no se han cumplido. La hipótesis permanece abierta. La investigación independiente capaz de probar estas condiciones es bienvenida.",
+
+  s8_eyebrow:"07 · Preguntas abiertas",
+  s8_title:"Lo que no sabemos.",
+  s8_lead:"Estas son las fronteras honestas de la hipótesis — preguntas que se reconocen, no se evitan.",
+  s8_q1:"¿Cuál es el mecanismo que conecta el desplazamiento C0 con la asimetría sistémica?",
+  s8_a1:"Las vías más plausibles implican alteración propioceptiva, señalización aferente alterada desde la musculatura suboccipital y posibles efectos vasculares en la unión craneocervical. Ninguno de estos mecanismos ha sido establecido en investigación controlada específica para la hipótesis Primordocciput.",
+  s8_q2:"¿Qué tan duraderas son las correcciones estructurales?",
+  s8_a2:"Las observaciones clínicas documentan cambios durante días a meses. La durabilidad a largo plazo — y las condiciones bajo las cuales las correcciones se mantienen vs. revierten — aún no se ha estudiado sistemáticamente.",
+  s8_q3:"¿Es C0 el punto primario en todos los casos, o uno de varios?",
+  s8_a3:"Se observa variabilidad poblacional. En la mayoría de los casos documentados, el desplazamiento C0 parece primario. Pero las condiciones límite — tipos corporales, historias de desarrollo, patrones de trauma — bajo las cuales otro punto podría tomar primacía no están definidas.",
+  s8_q4:"¿Cuál es la relación entre Primordocciput y las patologías craneocervicales conocidas?",
+  s8_a4:"La hipótesis Primordocciput aborda la configuración estructural subclínica — no la patología diagnosticada. La relación con condiciones conocidas es una pregunta de investigación relevante que aún no ha sido formalmente estudiada.",
+
+  s9_eyebrow:"08 · Observaciones de casos",
+  s9_title:"Observaciones documentadas.",
+  s9_lead:"Una biblioteca de casos estructurada registra configuraciones a lo largo del tiempo: patrón estructural inicial, historial de intervenciones, cambios observados y seguimiento.",
+  s9_d1:"observaciones clínicas documentadas", s9_d2:"años de observación estructurada",
+  s9_d3:"estructura de caso: inicial → intervención → seguimiento", s9_d4:"abierto para documentación continua",
+  s9_disc:"<b>Nota:</b> los casos son registros observacionales. Ilustran la hipótesis; no constituyen evidencia controlada de eficacia.",
+
+  s10_eyebrow:"09 · Investigación futura",
+  s10_title:"Hacia dónde debe ir la investigación.",
+  s10_lead:"Reconocimiento honesto de lo que se requiere para elevar esto de hipótesis clínica a marco establecido.",
+  s10_f1n:"Prioridad 1", s10_f1t:"Estudio de fiabilidad inter-evaluador", s10_f1b:"¿Pueden los observadores entrenados identificar independientemente el mismo patrón de desplazamiento C0 en los mismos sujetos? Esta es la prueba de reproducibilidad fundamental.",
+  s10_f2n:"Prioridad 2", s10_f2t:"Comparación controlada de correcciones", s10_f2b:"¿Produce la corrección específica de C0 mayores cambios estructurales secundarios que corregir otros puntos de unión? Esto prueba directamente la afirmación de primacía.",
+  s10_f3n:"Prioridad 3", s10_f3t:"Investigación de mecanismo", s10_f3b:"¿Qué vías neurológicas, vasculares o propioceptivas median las asociaciones observadas entre la corrección C0 y los cambios de estado?",
+  s10_f4n:"Prioridad 4", s10_f4t:"Seguimiento longitudinal de durabilidad", s10_f4b:"Seguimiento sistemático a los 3, 6, 12, 24 meses para establecer si las correcciones estructurales se mantienen, bajo qué condiciones y qué predice la reversión.",
+  s10_note:"<b>Invitación abierta:</b> investigadores, clínicos e instituciones interesados en probar estas hipótesis están invitados a comunicarse en info@primordocciput.org.",
+
+  s11_eyebrow:"10 · Contacto",
+  s11_title:"Ponerse en contacto.",
+  s11_lead:"Para consultas de investigación, preguntas clínicas, propuestas de colaboración o correspondencia sobre la hipótesis.",
+  s11_note:"Respondemos a consultas de investigación, propuestas de colaboración y preguntas clínicas sustantivas. No ofrecemos diagnóstico ni tratamiento.",
+
+  f_line1:"Primordocciput — una hipótesis clínica bajo investigación abierta.",
+  f_line2:"Desarrollada dentro del programa de investigación PRIMORDIS · parte de Anthroponomy.",
+  f_disc:"Contenido de investigación y educativo. No es consejo médico. No es una herramienta diagnóstica.",
+  f_rights:"© 2026 Primordocciput. Observaciones e hipótesis etiquetadas como tales."
+},
+
+fr:{
+  nav_hypothesis:"Hypothèse", nav_compensation:"Compensation", nav_research:"Recherche", nav_cases:"Cas", nav_contact:"Contact",
+  hero_eyebrow:"Hypothèse clinique · Jonction cranio-cervicale",
+  hero_title:"Un point. Des conséquences <em>systémiques</em>.",
+  hero_sub:"Primordocciput est une hypothèse : en C0 — la jonction cranio-cervicale — il existerait un point de déplacement primaire à partir duquel une asymétrie compensatoire se propage dans l'ensemble du système structurel.",
+  hero_cta1:"Lire l'hypothèse", hero_cta2:"Programme de recherche",
+  hero_note:"Une hypothèse de recherche ouverte. Pas un diagnostic. Pas un protocole de traitement.",
+  ax_c0a:"déplacement primaire", ax_c0b:"(hypothèse)", ax_axis:"axe structurel", ax_comp:"chaîne de compensation",
+  ax_scheme:"PRIMORDOCCIPUT · modèle C0",
+  hero_fig:"Modèle schématique — pas un rendu anatomique.",
+
+  s2_eyebrow:"01 · L'hypothèse",
+  s2_title:"L'hypothèse Primordocciput.",
+  s2_lead:"La plupart des interventions structurelles s'adressent aux compensations secondaires. L'hypothèse Primordocciput propose un point de départ différent : un déplacement primaire au niveau de la jonction cranio-cervicale qui précède et organise tout ce qui se trouve en dessous.",
+  s2_h_label:"Énoncé central",
+  s2_h_quote:"En C0 — l'articulation atlanto-occipitale — un déplacement structurel primaire pourrait agir comme l'origine organisatrice de l'asymétrie systémique, des schémas de charge et des chaînes de compensation adaptative dans tout le corps.",
+  s2_h_sub:"Ce déplacement n'est pas le seul facteur. Il est proposé comme le facteur primaire — le point à partir duquel les adaptations en cascade deviennent à la fois nécessaires et prévisibles. L'hypothèse est falsifiable et ses limites font l'objet d'une étude active.",
+  s2_h_status:"Statut épistémique : hypothèse clinique en cours d'étude · pas un fait établi",
+  s2_c1tag:"origine", s2_c1t:"Déplacement primaire", s2_c1b:"Le déplacement C0 initie la séquence structurelle. Avant que les compensations puissent être lues, le point primaire doit être localisé.",
+  s2_c2tag:"cascade", s2_c2t:"Propagation", s2_c2b:"À partir de C0, le système construit des contre-adaptations pour maintenir les yeux à niveau et préserver la posture verticale. Chaque adaptation crée une charge ailleurs.",
+  s2_c3tag:"conséquence", s2_c3t:"Charge systémique", s2_c3b:"La charge cumulée des chaînes de compensation — pas le déplacement initial — est là où les symptômes apparaissent typiquement.",
+
+  s3_eyebrow:"02 · Axe structurel",
+  s3_title:"L'axe structurel comme référence.",
+  s3_lead:"L'axe cranio-vertébral est la ligne de référence à partir de laquelle toutes les relations structurelles sont mesurées. C0 se situe à son sommet — tout déplacement là se propage vers le bas sur toute la référence.",
+  s3_l1t:"Axe structurel", s3_l1b:"L'organisation verticale de la tête, de la colonne vertébrale et du bassin — la ligne de référence de tout le système.",
+  s3_l2t:"Chaînes de compensation", s3_l2b:"Des contre-déplacements adaptatifs qui préservent l'équilibre au prix d'une distribution asymétrique des charges.",
+  s3_l3t:"Distribution des charges", s3_l3b:"Comment le poids, la tension et le mouvement sont partagés — ou concentrés — dans la structure.",
+  s3_l4t:"Réserve adaptative", s3_l4b:"La capacité restante à absorber une nouvelle charge avant que le système ne produise des signaux.",
+
+  s4_eyebrow:"03 · Schémas de compensation",
+  s4_title:"Comment la compensation se manifeste.",
+  s4_lead:"Si l'hypothèse Primordocciput est valide, la compensation suit des schémas prévisibles. Ce ne sont pas des symptômes aléatoires — c'est le système qui fait son travail sous contraintes structurelles.",
+  s4_c1tag:"schéma A", s4_c1t:"Récurrence", s4_c1b:"Lorsque le déplacement primaire n'est pas traité, le même signal revient — souvent au même endroit, du même côté.",
+  s4_c2tag:"schéma B", s4_c2t:"Migration", s4_c2b:"La charge calmée dans une zone refait surface dans une autre. Le signal se déplace ; le schéma sous-jacent non.",
+  s4_c3tag:"schéma C", s4_c3t:"Agrégation", s4_c3b:"Qualité du sommeil, concentration, tension cervicale, humeur — des signaux apparemment sans rapport partagent souvent un contexte structurel.",
+  s4_close:"Les schémas sont les preuves que le corps fournit avant d'avoir le langage pour ce qui ne va pas.",
+
+  s5_eyebrow:"04 · Associations observées",
+  s5_title:"Ce qui a été observé.",
+  s5_lead:"Plus de 3 500 cas documentés forment une base d'observation structurée. Les associations suivantes ont été notées. Chacune porte un statut épistémique — observé, hypothétique ou ouvert.",
+  s5_col1:"Domaine", s5_col2:"Association observée", s5_col3:"Statut",
+  s5_r1k:"Tension cervicale", s5_r1v:"Co-occurrence élevée avec le déplacement C0 dans les observations cliniques. Spécifique au côté et stable positionnellement.",
+  s5_r2k:"Asymétrie de charge", s5_r2v:"Différence mesurable dans la charge structurelle gauche/droite. Cohérente dans les cas documentés.",
+  s5_r3k:"Qualité du sommeil", s5_r3v:"Changements rapportés du sommeil après correction structurelle. Mécanisme non établi.",
+  s5_r4k:"Clarté cognitive", s5_r4v:"Amélioration rapportée de la concentration et de la clarté post-correction. Possible voie vasculaire ou neurologique — en cours d'étude.",
+  s5_r5k:"Variabilité populationnelle", s5_r5v:"Le degré auquel C0 est le point primaire vs. l'un de plusieurs varie. Conditions limites inconnues.",
+  s5_s_obs:"observé", s5_s_hyp:"hypothèse", s5_s_open:"ouvert",
+  s5_note:"<b>Note épistémique :</b> 'observé' signifie documenté dans les cas — pas établi par une étude contrôlée. Toutes les associations nécessitent une vérification indépendante.",
+
+  s6_eyebrow:"05 · Programme de recherche",
+  s6_title:"Un programme de recherche, pas une doctrine.",
+  s6_lead:"Primordocciput est construit comme un programme de recherche ouvert au sens lakatosien : une hypothèse de noyau dur entourée de revendications auxiliaires falsifiables, organisées pour des tests et des révisions.",
+  s6_r1tag:"base empirique", s6_r1t:"Observations de cas", s6_r1b:"3 500+ observations cliniques structurées forment le fondement empirique : cas avec configuration initiale, enregistrement d'interventions et suivi.",
+  s6_r2tag:"noyau dur", s6_r2t:"L'hypothèse", s6_r2b:"C0 est le point de déplacement structurel primaire à partir duquel l'asymétrie systémique peut originer. Déclaré comme hypothèse — pas comme fait établi.",
+  s6_r3tag:"falsifiabilité", s6_r3t:"Critères de falsification", s6_r3b:"Les revendications centrales sont associées à des conditions dans lesquelles elles seraient considérées comme fausses.",
+  s6_r4tag:"frontière", s6_r4t:"Questions ouvertes", s6_r4b:"Mécanismes, durabilité du changement, variabilité populationnelle et les limites de l'hypothèse restent des problèmes de recherche ouverts.",
+  s6_note:"<b>Exigence de conception :</b> les observations et les hypothèses sont toujours étiquetées comme telles. L'humilité scientifique est structurelle, pas rhétorique.",
+
+  s7_eyebrow:"06 · Critères de falsification",
+  s7_title:"Quand l'hypothèse aurait tort.",
+  s7_lead:"Une hypothèse qui ne peut pas être falsifiée n'est pas une hypothèse scientifique. Ce sont les conditions dans lesquelles l'hypothèse Primordocciput serait considérée comme falsifiée ou substantiellement révisée.",
+  s7_f1k:"Primauté de C0", s7_f1v:"Si des études comparatives rigoureuses montraient que la correction du déplacement C0 ne produit pas une amélioration structurelle plus grande que la correction d'autres points de jonction, la revendication de primauté serait falsifiée.",
+  s7_f2k:"Cascade de compensation", s7_f2v:"Si les cas documentés montraient que le déplacement C0 ne précède ni ne prédit les schémas compensatoires dans la majorité des cas, le modèle en cascade nécessiterait une révision fondamentale.",
+  s7_f3k:"Associations d'état", s7_f3v:"Si des études contrôlées ne trouvaient aucune corrélation entre la correction C0 et les changements d'état rapportés (sommeil, concentration, énergie), ces associations seraient abandonnées.",
+  s7_f4k:"Reproductibilité", s7_f4v:"Si des observateurs formés ne pouvaient pas identifier de manière fiable le même schéma de déplacement C0 dans les mêmes cas, la base observationnelle serait insuffisante.",
+  s7_note:"<b>Statut actuel :</b> ces critères n'ont pas été remplis. L'hypothèse reste ouverte. La recherche indépendante capable de tester ces conditions est la bienvenue.",
+
+  s8_eyebrow:"07 · Questions ouvertes",
+  s8_title:"Ce que nous ne savons pas.",
+  s8_lead:"Ce sont les frontières honnêtes de l'hypothèse — des questions qui sont reconnues, pas évitées.",
+  s8_q1:"Quel est le mécanisme reliant le déplacement C0 à l'asymétrie systémique ?",
+  s8_a1:"Les voies les plus plausibles impliquent une perturbation proprioceptive, une signalisation afférente altérée depuis la musculature sous-occipitale et des effets vasculaires possibles à la jonction cranio-cervicale. Aucun de ces mécanismes n'a été établi dans une recherche contrôlée spécifique à l'hypothèse Primordocciput.",
+  s8_q2:"Quelle est la durabilité des corrections structurelles ?",
+  s8_a2:"Les observations cliniques documentent des changements sur des jours à des mois. La durabilité à long terme — et les conditions dans lesquelles les corrections tiennent vs. s'inversent — n'a pas encore été étudiée systématiquement.",
+  s8_q3:"C0 est-il le point primaire dans tous les cas, ou l'un de plusieurs ?",
+  s8_a3:"Une variabilité populationnelle est observée. Dans la majorité des cas documentés, le déplacement C0 semble primaire. Mais les conditions limites — types corporels, histoires développementales, schémas de traumatismes — dans lesquelles un autre point pourrait prendre la primauté ne sont pas définies.",
+  s8_q4:"Quelle est la relation entre Primordocciput et les pathologies cranio-cervicales connues ?",
+  s8_a4:"L'hypothèse Primordocciput aborde la configuration structurelle subclinique — pas la pathologie diagnostiquée. La relation avec les conditions connues est une question de recherche pertinente qui n'a pas encore été formellement étudiée.",
+
+  s9_eyebrow:"08 · Observations de cas",
+  s9_title:"Observations documentées.",
+  s9_lead:"Une bibliothèque de cas structurée enregistre les configurations dans le temps : schéma structurel initial, historique des interventions, changements observés et suivi.",
+  s9_d1:"observations cliniques documentées", s9_d2:"années d'observation structurée",
+  s9_d3:"structure de cas : initial → intervention → suivi", s9_d4:"ouvert pour documentation continue",
+  s9_disc:"<b>Note :</b> les cas sont des enregistrements observationnels. Ils illustrent l'hypothèse ; ils ne constituent pas une preuve contrôlée d'efficacité.",
+
+  s10_eyebrow:"09 · Recherche future",
+  s10_title:"Où la recherche doit aller.",
+  s10_lead:"Reconnaissance honnête de ce qui est nécessaire pour élever cela d'une hypothèse clinique à un cadre établi.",
+  s10_f1n:"Priorité 1", s10_f1t:"Étude de fiabilité inter-évaluateurs", s10_f1b:"Des observateurs formés peuvent-ils identifier indépendamment le même schéma de déplacement C0 chez les mêmes sujets ? C'est le test de reproductibilité fondamental.",
+  s10_f2n:"Priorité 2", s10_f2t:"Comparaison contrôlée des corrections", s10_f2b:"La correction spécifique de C0 produit-elle de plus grands changements structurels en aval que la correction d'autres points de jonction ? Cela teste directement la revendication de primauté.",
+  s10_f3n:"Priorité 3", s10_f3t:"Investigation du mécanisme", s10_f3b:"Quelles voies neurologiques, vasculaires ou proprioceptives médiatisent les associations observées entre la correction C0 et les changements d'état ?",
+  s10_f4n:"Priorité 4", s10_f4t:"Suivi longitudinal de durabilité", s10_f4b:"Suivi systématique à 3, 6, 12, 24 mois pour établir si les corrections structurelles tiennent, dans quelles conditions et ce qui prédit la réversion.",
+  s10_note:"<b>Invitation ouverte :</b> les chercheurs, cliniciens et institutions intéressés à tester ces hypothèses sont invités à contacter info@primordocciput.org.",
+
+  s11_eyebrow:"10 · Contact",
+  s11_title:"Prendre contact.",
+  s11_lead:"Pour les demandes de recherche, questions cliniques, propositions de collaboration ou correspondance concernant l'hypothèse.",
+  s11_note:"Nous répondons aux demandes de recherche, aux propositions de collaboration et aux questions cliniques substantielles. Nous n'offrons pas de diagnostic ou de traitement.",
+
+  f_line1:"Primordocciput — une hypothèse clinique sous recherche ouverte.",
+  f_line2:"Développée dans le cadre du programme de recherche PRIMORDIS · partie de l'Anthroponomie.",
+  f_disc:"Contenu de recherche et éducatif. Pas un conseil médical. Pas un outil diagnostique.",
+  f_rights:"© 2026 Primordocciput. Observations et hypothèses étiquetées comme telles."
+},
+
+ar:{
+  nav_hypothesis:"الفرضية", nav_compensation:"التعويض", nav_research:"البحث", nav_cases:"الحالات", nav_contact:"التواصل",
+  hero_eyebrow:"فرضية سريرية · التقاطع القحفي العنقي",
+  hero_title:"نقطة واحدة. عواقب <em>جهازية</em>.",
+  hero_sub:"Primordocciput فرضية: عند C0 — التقاطع القحفي العنقي — يوجد نقطة إزاحة أولية تنطلق منها التعويضية اللاتماثلية لتمتد في جميع أنحاء النظام الهيكلي.",
+  hero_cta1:"اقرأ الفرضية", hero_cta2:"برنامج البحث",
+  hero_note:"فرضية بحثية مفتوحة. ليست تشخيصاً. ليست بروتوكول علاج.",
+  ax_c0a:"إزاحة أولية", ax_c0b:"(فرضية)", ax_axis:"المحور الهيكلي", ax_comp:"سلسلة التعويض",
+  ax_scheme:"PRIMORDOCCIPUT · نموذج C0",
+  hero_fig:"نموذج تخطيطي — ليس تصويراً تشريحياً.",
+
+  s2_eyebrow:"٠١ · الفرضية",
+  s2_title:"فرضية Primordocciput.",
+  s2_lead:"معظم التدخلات الهيكلية تعالج التعويضات الثانوية. تقترح فرضية Primordocciput نقطة انطلاق مختلفة: إزاحة أولية عند التقاطع القحفي العنقي تسبق وتنظم كل ما هو أدنى.",
+  s2_h_label:"البيان المحوري",
+  s2_h_quote:"عند C0 — مفصل أطلس-قذال — قد تعمل إزاحة هيكلية أولية كمصدر تنظيمي للتماثل الجهازي وأنماط الحمل وسلاسل التعويض التكيفي في جميع أنحاء الجسم.",
+  s2_h_sub:"هذه الإزاحة ليست العامل الوحيد. يُقترح أنها الأساسية — النقطة التي تصبح منها التكيفات المتتالية ضرورية ومتوقعة معاً. الفرضية قابلة للدحض وحدودها قيد الدراسة النشطة.",
+  s2_h_status:"الحالة المعرفية: فرضية سريرية قيد الدراسة · ليست حقيقة ثابتة",
+  s2_c1tag:"الأصل", s2_c1t:"الإزاحة الأولية", s2_c1b:"تبدأ إزاحة C0 التسلسل الهيكلي. قبل قراءة التعويضات، يجب تحديد النقطة الأولية.",
+  s2_c2tag:"التتالي", s2_c2t:"الانتشار", s2_c2b:"من C0، يبني النظام تكيفات معاكسة للحفاظ على مستوى العينين والحفاظ على الوضعية المستقيمة. كل تكيف يخلق حملاً في مكان آخر.",
+  s2_c3tag:"النتيجة", s2_c3t:"الحمل الجهازي", s2_c3b:"الحمل المتراكم لسلاسل التعويض — وليس الإزاحة الأولية — هو حيث تظهر الأعراض عادةً.",
+
+  s3_eyebrow:"٠٢ · المحور الهيكلي",
+  s3_title:"المحور الهيكلي كمرجع.",
+  s3_lead:"المحور القحفي الفقري هو خط المرجع الذي تُقاس منه جميع العلاقات الهيكلية. C0 يقع عند قمته — أي إزاحة هناك تنتشر إلى الأسفل على طول المرجع بأكمله.",
+  s3_l1t:"المحور الهيكلي", s3_l1b:"التنظيم العمودي للرأس والعمود الفقري والحوض — خط المرجع للنظام بأكمله.",
+  s3_l2t:"سلاسل التعويض", s3_l2b:"إزاحات معاكسة تكيفية تحافظ على التوازن بتكلفة توزيع الحمل بشكل غير متماثل.",
+  s3_l3t:"توزيع الحمل", s3_l3b:"كيف يتم تقاسم الوزن والتوتر والحركة — أو تركيزها — عبر البنية.",
+  s3_l4t:"الاحتياطي التكيفي", s3_l4b:"القدرة المتبقية لامتصاص حمل جديد قبل أن ينتج النظام إشارات.",
+
+  s4_eyebrow:"٠٣ · أنماط التعويض",
+  s4_title:"كيف يظهر التعويض.",
+  s4_lead:"إذا كانت فرضية Primordocciput صحيحة، فإن التعويض يتبع أنماطاً متوقعة. هذه ليست أعراضاً عشوائية — إنها النظام يؤدي عمله تحت قيود هيكلية.",
+  s4_c1tag:"نمط أ", s4_c1t:"التكرار", s4_c1b:"عندما لا تُعالج الإزاحة الأولية، تعود نفس الإشارة — غالباً في نفس المكان، على نفس الجانب.",
+  s4_c2tag:"نمط ب", s4_c2t:"الهجرة", s4_c2b:"الحمل الهادئ في منطقة يظهر في منطقة أخرى. الإشارة تتحرك؛ النمط الأساسي لا يتحرك.",
+  s4_c3tag:"نمط ج", s4_c3t:"التجميع", s4_c3b:"جودة النوم والتركيز وتوتر الرقبة والمزاج — الإشارات التي تبدو غير ذات صلة غالباً ما تشترك في سياق هيكلي واحد.",
+  s4_close:"الأنماط هي الأدلة التي يوفرها الجسم قبل أن يجد لغة لما يسير بشكل خاطئ.",
+
+  s5_eyebrow:"٠٤ · الارتباطات الملاحظة",
+  s5_title:"ما تم ملاحظته.",
+  s5_lead:"أكثر من 3500 حالة موثقة تشكل قاعدة للملاحظة المنظمة. تم ملاحظة الارتباطات التالية. كل منها يحمل حالة معرفية — ملاحظة أو فرضية أو مفتوحة.",
+  s5_col1:"المجال", s5_col2:"الارتباط الملاحظ", s5_col3:"الحالة",
+  s5_r1k:"التوتر العنقي", s5_r1v:"تزامن مرتفع مع إزاحة C0 في الملاحظات السريرية. خاص بالجانب ومستقر وضعياً.",
+  s5_r2k:"عدم تماثل الحمل", s5_r2v:"فرق قابل للقياس في الحمل الهيكلي الأيسر/الأيمن. متسق في الحالات الموثقة.",
+  s5_r3k:"جودة النوم", s5_r3v:"تغييرات في النوم تم الإبلاغ عنها بعد التصحيح الهيكلي. الآلية غير ثابتة.",
+  s5_r4k:"الوضوح المعرفي", s5_r4v:"تحسن في التركيز والوضوح بعد التصحيح. مسار وعائي أو عصبي محتمل — قيد الدراسة.",
+  s5_r5k:"التباين السكاني", s5_r5v:"الدرجة التي يكون فيها C0 النقطة الأساسية مقابل إحدى نقاط عديدة تتفاوت. الشروط الحدودية غير معروفة.",
+  s5_s_obs:"ملاحظ", s5_s_hyp:"فرضية", s5_s_open:"مفتوح",
+  s5_note:"<b>ملاحظة معرفية:</b> 'ملاحظ' يعني موثق عبر الحالات — لم يثبت بدراسة مضبوطة. جميع الارتباطات تتطلب تحققاً مستقلاً.",
+
+  s6_eyebrow:"٠٥ · برنامج البحث",
+  s6_title:"برنامج بحث لا عقيدة.",
+  s6_lead:"Primordocciput مبني كبرنامج بحثي مفتوح بالمعنى اللاكاتوسي: فرضية نواة صلبة محاطة بادعاءات مساعدة قابلة للدحض، منظمة للاختبار والمراجعة.",
+  s6_r1tag:"القاعدة التجريبية", s6_r1t:"ملاحظات الحالات", s6_r1b:"أكثر من 3500 ملاحظة سريرية منظمة تشكل الأساس التجريبي: حالات مع التهيئة الأولية وسجل التدخلات والمتابعة.",
+  s6_r2tag:"النواة الصلبة", s6_r2t:"الفرضية", s6_r2b:"C0 هي نقطة الإزاحة الهيكلية الأولية التي قد ينشأ منها عدم التماثل الجهازي. مصاغة كفرضية — ليست حقيقة ثابتة.",
+  s6_r3tag:"القابلية للاختبار", s6_r3t:"معايير الدحض", s6_r3b:"الادعاءات الأساسية مقترنة بالشروط التي يُعدّ بموجبها كل منها خاطئاً.",
+  s6_r4tag:"الحدود", s6_r4t:"أسئلة مفتوحة", s6_r4b:"الآليات ومتانة التغيير والتباين السكاني وحدود الفرضية تظل مشكلات بحثية مفتوحة.",
+  s6_note:"<b>متطلب التصميم:</b> الملاحظات والفرضيات دائماً مسماة كما هي. التواضع العلمي هيكلي لا بلاغي.",
+
+  s7_eyebrow:"٠٦ · معايير الدحض",
+  s7_title:"متى ستكون الفرضية خاطئة.",
+  s7_lead:"الفرضية التي لا يمكن دحضها ليست فرضية علمية. هذه هي الشروط التي يمكن بموجبها اعتبار فرضية Primordocciput مدحوضة أو مراجعة جوهرية.",
+  s7_f1k:"أولوية C0", s7_f1v:"إذا أظهرت الدراسات المقارنة الصارمة أن تصحيح إزاحة C0 لا ينتج تحسيناً هيكلياً أكبر من تصحيح نقاط التقاطع الأخرى، سيتم دحض ادعاء الأولوية.",
+  s7_f2k:"تتالي التعويض", s7_f2v:"إذا أظهرت الحالات الموثقة أن إزاحة C0 لا تسبق الأنماط التعويضية ولا تتنبأ بها في معظم الحالات، سيتطلب نموذج التتالي مراجعة جوهرية.",
+  s7_f3k:"ارتباطات الحالة", s7_f3v:"إذا لم تجد الدراسات المضبوطة أي ارتباط بين تصحيح C0 والتغيرات في الحالة المبلغ عنها (نوم، تركيز، طاقة)، ستُهجر تلك الارتباطات.",
+  s7_f4k:"قابلية التكرار", s7_f4v:"إذا لم يتمكن المراقبون المدربون من تحديد نفس نمط إزاحة C0 في نفس الحالات بشكل موثوق، فإن القاعدة الملاحظاتية ستكون غير كافية.",
+  s7_note:"<b>الحالة الراهنة:</b> لم تستوفَ هذه المعايير. الفرضية لا تزال مفتوحة. البحث المستقل القادر على اختبار هذه الشروط مرحب به.",
+
+  s8_eyebrow:"٠٧ · أسئلة مفتوحة",
+  s8_title:"ما لا نعرفه.",
+  s8_lead:"هذه هي الحدود الصادقة للفرضية — أسئلة معترف بها لا متجنبة.",
+  s8_q1:"ما هي الآلية التي تربط إزاحة C0 باللاتماثل الجهازي؟",
+  s8_a1:"المسارات الأكثر احتمالاً تتضمن اضطراب الاستقبال الحسي العميق والإشارة الواردة المتغيرة من العضلات تحت القذالية والتأثيرات الوعائية المحتملة عند التقاطع القحفي العنقي. لم تُثبت أي من هذه الآليات في بحث مضبوط خاص بفرضية Primordocciput.",
+  s8_q2:"ما مدى استدامة التصحيحات الهيكلية؟",
+  s8_a2:"توثق الملاحظات السريرية تغييرات على مدى أيام إلى أشهر. الاستدامة على المدى الطويل — والشروط التي تثبت فيها التصحيحات أو تنعكس — لم تُدرس بشكل منهجي بعد.",
+  s8_q3:"هل C0 هي النقطة الأولية في جميع الحالات، أم واحدة من عدة؟",
+  s8_a3:"يُلاحظ تباين سكاني. في معظم الحالات الموثقة، تبدو إزاحة C0 أولية. لكن الشروط الحدودية — أنواع الجسم، تاريخ النمو، أنماط الصدمات — التي قد تأخذ فيها نقطة أخرى الأولوية غير محددة.",
+  s8_q4:"ما هي العلاقة بين Primordocciput والأمراض القحفية العنقية المعروفة؟",
+  s8_a4:"تعالج فرضية Primordocciput التهيئة الهيكلية تحت السريرية — لا الأمراض المشخصة. العلاقة بالحالات المعروفة سؤال بحثي ذو صلة لم يُدرس رسمياً بعد.",
+
+  s9_eyebrow:"٠٨ · ملاحظات الحالات",
+  s9_title:"الملاحظات الموثقة.",
+  s9_lead:"مكتبة حالات منظمة تسجل التهيئات عبر الزمن: النمط الهيكلي الأولي، تاريخ التدخلات، التغييرات الملاحظة والمتابعة.",
+  s9_d1:"ملاحظة سريرية موثقة", s9_d2:"سنوات من الملاحظة المنظمة",
+  s9_d3:"هيكل الحالة: أولي → تدخل → متابعة", s9_d4:"مفتوح للتوثيق المستمر",
+  s9_disc:"<b>ملاحظة:</b> الحالات سجلات ملاحظاتية. إنها توضح الفرضية؛ لا تشكل دليلاً مضبوطاً على الفعالية.",
+
+  s10_eyebrow:"٠٩ · البحث المستقبلي",
+  s10_title:"إلى أين يجب أن يتجه البحث.",
+  s10_lead:"اعتراف صادق بما هو مطلوب للارتقاء بهذا من فرضية سريرية إلى إطار ثابت.",
+  s10_f1n:"الأولوية ١", s10_f1t:"دراسة الموثوقية بين المقيِّمين", s10_f1b:"هل يستطيع المراقبون المدربون تحديد نفس نمط إزاحة C0 بشكل مستقل لدى نفس الأشخاص؟ هذا هو اختبار قابلية التكرار الأساسي.",
+  s10_f2n:"الأولوية ٢", s10_f2t:"مقارنة التصحيحات المضبوطة", s10_f2b:"هل تنتج التصحيح المحدد لـ C0 تغييرات هيكلية أكبر في المناطق الأدنى مقارنة بتصحيح نقاط التقاطع الأخرى؟",
+  s10_f3n:"الأولوية ٣", s10_f3t:"التحقيق في الآلية", s10_f3b:"ما هي المسارات العصبية أو الوعائية أو الاستقبالية الحسية التي تتوسط الارتباطات الملاحظة بين تصحيح C0 وتغيرات الحالة؟",
+  s10_f4n:"الأولوية ٤", s10_f4t:"تتبع الاستدامة الطولية", s10_f4b:"متابعة منهجية عند 3 و6 و12 و24 شهراً لتحديد ما إذا كانت التصحيحات الهيكلية تثبت وتحت أي شروط وما يتنبأ بالانعكاس.",
+  s10_note:"<b>دعوة مفتوحة:</b> الباحثون والأطباء والمؤسسات المهتمون باختبار هذه الفرضيات مدعوون للتواصل على info@primordocciput.org.",
+
+  s11_eyebrow:"١٠ · التواصل",
+  s11_title:"تواصل معنا.",
+  s11_lead:"لاستفسارات البحث والأسئلة السريرية ومقترحات التعاون أو المراسلة بشأن الفرضية.",
+  s11_note:"نرد على استفسارات البحث ومقترحات التعاون والأسئلة السريرية الجوهرية. لا نقدم تشخيصاً أو علاجاً.",
+
+  f_line1:"Primordocciput — فرضية سريرية تحت بحث مفتوح.",
+  f_line2:"طُوِّرت ضمن برنامج بحث PRIMORDIS · جزء من الأنثروبونوميا.",
+  f_disc:"محتوى بحثي وتعليمي. ليس نصيحة طبية. ليس أداة تشخيص.",
+  f_rights:"© 2026 Primordocciput. الملاحظات والفرضيات مسماة كما هي."
+},
+
+zh:{
+  nav_hypothesis:"假说", nav_compensation:"代偿", nav_research:"研究", nav_cases:"案例", nav_contact:"联系",
+  hero_eyebrow:"临床假说 · 颅颈交界区",
+  hero_title:"一个点。<em>系统性</em>后果。",
+  hero_sub:"Primordocciput 是一个假说：在C0——颅颈交界处——存在一个原发性位移点，代偿性不对称从这里出发，扩散至整个结构系统。",
+  hero_cta1:"阅读假说", hero_cta2:"研究计划",
+  hero_note:"开放性研究假说。非诊断。非治疗方案。",
+  ax_c0a:"原发性位移", ax_c0b:"（假说）", ax_axis:"结构轴", ax_comp:"代偿链",
+  ax_scheme:"PRIMORDOCCIPUT · C0模型",
+  hero_fig:"示意图模型——非解剖学渲染。",
+
+  s2_eyebrow:"01 · 假说",
+  s2_title:"Primordocciput假说。",
+  s2_lead:"大多数结构干预针对的是下游代偿。Primordocciput假说提出了一个不同的起点：颅颈交界处的原发性位移，先于并组织其下方的一切。",
+  s2_h_label:"核心陈述",
+  s2_h_quote:"在C0——寰枕关节处——原发性结构位移可能作为全身不对称性、负荷模式和适应性代偿链的组织起源而发挥作用。",
+  s2_h_sub:"这一位移并非唯一因素。它被提出为原发性因素——从这一点出发，级联适应变得既必要又可预测。该假说可证伪，其局限性正在积极研究中。",
+  s2_h_status:"认识论状态：正在研究中的临床假说 · 非已确立事实",
+  s2_c1tag:"起源", s2_c1t:"原发性位移", s2_c1b:"C0位移启动结构序列。在能够读取代偿之前，必须定位原发点。",
+  s2_c2tag:"级联", s2_c2t:"传播", s2_c2b:"从C0起，系统建立反适应以保持眼睛水平和直立姿势。每个适应在其他地方产生负荷。",
+  s2_c3tag:"后果", s2_c3t:"系统负荷", s2_c3b:"代偿链的累积负荷——而非初始位移——才是症状通常出现的地方。",
+
+  s3_eyebrow:"02 · 结构轴",
+  s3_title:"结构轴作为参考。",
+  s3_lead:"颅椎轴是测量所有结构关系的参考线。C0位于其顶点——任何位移都会沿整个参考向下传播。",
+  s3_l1t:"结构轴", s3_l1b:"头部、脊柱和骨盆的垂直组织——整个系统的参考线。",
+  s3_l2t:"代偿链", s3_l2b:"以不对称负荷为代价维持平衡的适应性反位移。",
+  s3_l3t:"负荷分布", s3_l3b:"重量、张力和运动在结构中如何共享——或集中。",
+  s3_l4t:"适应储备", s3_l4b:"系统产生信号前吸收新负荷的剩余能力。",
+
+  s4_eyebrow:"03 · 代偿模式",
+  s4_title:"代偿如何呈现。",
+  s4_lead:"如果Primordocciput假说成立，代偿遵循可预测的模式。这些不是随机症状——这是系统在结构约束下完成其工作。",
+  s4_c1tag:"模式A", s4_c1t:"复发", s4_c1b:"当原发性位移未被处理时，相同的信号会返回——通常在同一位置、同一侧。",
+  s4_c2tag:"模式B", s4_c2t:"迁移", s4_c2b:"在一个区域平息的负荷会在另一个区域出现。信号移动；潜在模式不变。",
+  s4_c3tag:"模式C", s4_c3t:"聚合", s4_c3b:"睡眠质量、专注力、颈部张力、情绪——看似无关的信号往往共享一个结构背景。",
+  s4_close:"模式是身体在找到语言表达之前提供的证据。",
+
+  s5_eyebrow:"04 · 观察到的关联",
+  s5_title:"已观察到的内容。",
+  s5_lead:"超过3500个有记录的案例形成了结构化观察的基础。以下关联已被注意到。每个都带有认识论状态——已观察、假设性或开放性。",
+  s5_col1:"领域", s5_col2:"观察到的关联", s5_col3:"状态",
+  s5_r1k:"颈部张力", s5_r1v:"在临床观察中与C0位移高度共现。侧别特异性且位置稳定。",
+  s5_r2k:"负荷不对称", s5_r2v:"左右结构负荷的可测量差异。在有记录的案例中一致。",
+  s5_r3k:"睡眠质量", s5_r3v:"结构矫正后报告的睡眠变化。机制未确立。",
+  s5_r4k:"认知清晰度", s5_r4v:"矫正后报告的专注力和清晰度改善。可能的血管或神经通路——正在研究中。",
+  s5_r5k:"人群变异性", s5_r5v:"C0作为原发点与多个原发点之一的程度各异。边界条件未知。",
+  s5_s_obs:"已观察", s5_s_hyp:"假说", s5_s_open:"开放",
+  s5_note:"<b>认识论注意：</b>「已观察」意味着在案例中有记录——并非通过对照研究确立。所有关联都需要独立验证。",
+
+  s6_eyebrow:"05 · 研究计划",
+  s6_title:"研究计划，而非教条。",
+  s6_lead:"Primordocciput以拉卡托斯意义上的开放研究计划构建：一个硬核假说，周围环绕着可证伪的辅助主张，组织用于测试和修订。",
+  s6_r1tag:"经验基础", s6_r1t:"案例观察", s6_r1b:"3500+结构化临床观察构成经验基础：具有初始配置、干预记录和随访的案例。",
+  s6_r2tag:"硬核", s6_r2t:"假说", s6_r2b:"C0是原发性结构位移点，系统性不对称可能从此起源。作为假说陈述——非已确立事实。",
+  s6_r3tag:"可测试性", s6_r3t:"证伪标准", s6_r3b:"核心主张配有认定其为假的条件。",
+  s6_r4tag:"前沿", s6_r4t:"开放性问题", s6_r4b:"机制、变化的持久性、人群变异性和假说的边界仍是开放的研究问题。",
+  s6_note:"<b>设计要求：</b>观察和假说始终标注为如此。科学谦逊是结构性的，而非修辞性的。",
+
+  s7_eyebrow:"06 · 证伪标准",
+  s7_title:"假说何时会是错误的。",
+  s7_lead:"一个无法证伪的假说不是科学假说。这些是Primordocciput假说将被视为证伪或实质修订的条件。",
+  s7_f1k:"C0优先性", s7_f1v:"如果严格的比较研究表明矫正C0位移产生的结构改善不大于矫正其他交界点，优先性主张将被证伪。",
+  s7_f2k:"代偿级联", s7_f2v:"如果有记录的案例显示C0位移在大多数案例中并不先于或预测代偿模式，级联模型将需要根本性修订。",
+  s7_f3k:"状态关联", s7_f3v:"如果对照研究发现C0矫正与报告的状态变化（睡眠、专注力、能量）之间没有相关性，这些关联将被放弃。",
+  s7_f4k:"可重复性", s7_f4v:"如果受过训练的观察者无法在相同案例中可靠地识别相同的C0位移模式，观察基础将不足。",
+  s7_note:"<b>当前状态：</b>这些标准尚未满足。假说保持开放。欢迎能够测试这些条件的独立研究。",
+
+  s8_eyebrow:"07 · 开放性问题",
+  s8_title:"我们不知道的。",
+  s8_lead:"这些是假说的诚实边界——被承认而非回避的问题。",
+  s8_q1:"连接C0位移与系统性不对称的机制是什么？",
+  s8_a1:"最合理的途径涉及本体感觉干扰、枕下肌肉传入信号改变以及颅颈交界处可能的血管效应。这些机制都没有在专门针对Primordocciput假说的对照研究中得到确立。",
+  s8_q2:"结构矫正的持久性如何？",
+  s8_a2:"临床观察记录了数天到数月的变化。长期持久性——以及矫正维持与逆转的条件——尚未系统研究。",
+  s8_q3:"C0在所有案例中都是原发点，还是多个点之一？",
+  s8_a3:"观察到人群变异性。在大多数有记录的案例中，C0位移似乎是原发性的。但另一个点可能取得优先性的边界条件——体型、发育史、创伤模式——尚未定义。",
+  s8_q4:"Primordocciput与已知颅颈病理之间的关系是什么？",
+  s8_a4:"Primordocciput假说处理亚临床结构配置——而非诊断的病理。与已知状况的关系是一个尚未正式研究的相关研究问题。",
+
+  s9_eyebrow:"08 · 案例观察",
+  s9_title:"有记录的观察。",
+  s9_lead:"结构化案例库随时间记录配置：初始结构模式、干预历史、观察到的变化和随访。",
+  s9_d1:"有记录的临床观察", s9_d2:"年的结构化观察",
+  s9_d3:"案例结构：初始→干预→随访", s9_d4:"开放持续记录",
+  s9_disc:"<b>注：</b>案例是观察性记录。它们说明假说；不构成疗效的对照证据。",
+
+  s10_eyebrow:"09 · 未来研究",
+  s10_title:"研究必须去向何处。",
+  s10_lead:"诚实承认将其从临床假说提升为已确立框架所需的内容。",
+  s10_f1n:"优先级1", s10_f1t:"评分者间信度研究", s10_f1b:"受过训练的观察者能否在相同受试者中独立识别相同的C0位移模式？这是基础可重复性测试。",
+  s10_f2n:"优先级2", s10_f2t:"矫正对照比较", s10_f2b:"特定矫正C0是否比矫正其他交界点产生更大的下游结构变化？这直接测试优先性主张。",
+  s10_f3n:"优先级3", s10_f3t:"机制研究", s10_f3b:"哪些神经、血管或本体感觉通路介导C0矫正与状态变化之间观察到的关联？",
+  s10_f4n:"优先级4", s10_f4t:"纵向持久性追踪", s10_f4b:"在3、6、12、24个月进行系统性随访，以确定结构矫正是否持续、在何种条件下持续以及什么预测逆转。",
+  s10_note:"<b>开放邀请：</b>有兴趣测试这些假说的研究人员、临床医生和机构受邀联系 info@primordocciput.org。",
+
+  s11_eyebrow:"10 · 联系",
+  s11_title:"取得联系。",
+  s11_lead:"用于研究咨询、临床问题、合作提案或关于假说的通信。",
+  s11_note:"我们回复研究咨询、合作提案和实质性临床问题。我们不提供诊断或治疗。",
+
+  f_line1:"Primordocciput——开放研究中的临床假说。",
+  f_line2:"在PRIMORDIS研究计划框架内开发 · 人类学的一部分。",
+  f_disc:"研究和教育内容。非医学建议。非诊断工具。",
+  f_rights:"© 2026 Primordocciput. 观察和假说已标注为如此。"
+},
+
+ja:{
+  nav_hypothesis:"仮説", nav_compensation:"補償", nav_research:"研究", nav_cases:"症例", nav_contact:"連絡",
+  hero_eyebrow:"臨床仮説 · 頭蓋頸椎移行部",
+  hero_title:"一つの点。<em>全身的</em>な結果。",
+  hero_sub:"Primordocciputは仮説です：C0——頭蓋頸椎接合部——に一次変位点が存在し、そこから補償的非対称が構造システム全体に伝播するという。",
+  hero_cta1:"仮説を読む", hero_cta2:"研究プログラム",
+  hero_note:"オープンな研究仮説。診断ではありません。治療プロトコルではありません。",
+  ax_c0a:"一次変位", ax_c0b:"（仮説）", ax_axis:"構造軸", ax_comp:"代償連鎖",
+  ax_scheme:"PRIMORDOCCIPUT · C0モデル",
+  hero_fig:"模式図——解剖学的レンダリングではありません。",
+
+  s2_eyebrow:"01 · 仮説",
+  s2_title:"Primordocciput仮説。",
+  s2_lead:"ほとんどの構造的介入は二次的な代償に対処しています。Primordocciput仮説は異なる出発点を提案します：頭蓋頸椎移行部における一次変位であり、それが下位のすべてに先行し組織化するというものです。",
+  s2_h_label:"中核ステートメント",
+  s2_h_quote:"C0——環椎後頭関節——において、一次構造変位が全身の非対称性、負荷パターン、および体全体の適応的代償連鎖の組織的起源として機能する可能性があります。",
+  s2_h_sub:"この変位は唯一の要因ではありません。それは一次的な要因として提案されています——カスケード適応が必要かつ予測可能になる点です。仮説は反証可能であり、その限界は活発に研究されています。",
+  s2_h_status:"認識論的状況：研究中の臨床仮説 · 確立された事実ではない",
+  s2_c1tag:"起源", s2_c1t:"一次変位", s2_c1b:"C0変位が構造的シーケンスを開始します。代償を読む前に、一次点を特定する必要があります。",
+  s2_c2tag:"カスケード", s2_c2t:"伝播", s2_c2b:"C0から、システムは目を水平に保ち直立姿勢を維持するための反適応を構築します。各適応は別の場所に負荷を生み出します。",
+  s2_c3tag:"結果", s2_c3t:"システム負荷", s2_c3b:"代償連鎖の累積負荷——初期変位ではなく——が症状が通常現れる場所です。",
+
+  s3_eyebrow:"02 · 構造軸",
+  s3_title:"参照としての構造軸。",
+  s3_lead:"頭蓋椎骨軸は、すべての構造的関係が測定される参照線です。C0はその頂点に位置し——そこでの変位はすべての参照に沿って下方に伝播します。",
+  s3_l1t:"構造軸", s3_l1b:"頭部、脊椎、骨盤の垂直組織——システム全体の参照線。",
+  s3_l2t:"代償連鎖", s3_l2b:"非対称的な負荷分配を代償にバランスを維持する適応的反変位。",
+  s3_l3t:"負荷分配", s3_l3b:"重量、張力、運動が構造全体でどのように共有——または集中——されているか。",
+  s3_l4t:"適応リザーブ", s3_l4b:"システムが信号を生成する前に新しい負荷を吸収する残余能力。",
+
+  s4_eyebrow:"03 · 代償パターン",
+  s4_title:"代償の現れ方。",
+  s4_lead:"Primordocciput仮説が成立するならば、代償は予測可能なパターンに従います。これらはランダムな症状ではなく——それは構造的制約下でシステムが仕事をしているのです。",
+  s4_c1tag:"パターンA", s4_c1t:"再発", s4_c1b:"一次変位が対処されていない場合、同じ信号が戻ってきます——しばしば同じ場所、同じ側に。",
+  s4_c2tag:"パターンB", s4_c2t:"移動", s4_c2b:"ある領域で静まった負荷が別の領域に表面化します。信号は移動しますが、潜在的なパターンは移動しません。",
+  s4_c3tag:"パターンC", s4_c3t:"集約", s4_c3b:"睡眠の質、集中力、首の緊張、気分——一見無関係な信号はしばしば一つの構造的文脈を共有しています。",
+  s4_close:"パターンは、身体が何が悪いかの言語を見つける前に提供する証拠です。",
+
+  s5_eyebrow:"04 · 観察された関連",
+  s5_title:"観察されたこと。",
+  s5_lead:"3,500件以上の文書化された症例が構造化観察の基盤を形成しています。以下の関連が注目されています。各々が認識論的状況を持ちます——観察済み、仮説的、またはオープン。",
+  s5_col1:"領域", s5_col2:"観察された関連", s5_col3:"状況",
+  s5_r1k:"頸部緊張", s5_r1v:"臨床観察でC0変位との高い共起。側面特異的で位置的に安定。",
+  s5_r2k:"負荷非対称性", s5_r2v:"左右構造負荷の測定可能な差異。文書化された症例で一貫している。",
+  s5_r3k:"睡眠の質", s5_r3v:"構造矯正後の睡眠変化の報告。メカニズム未確立。",
+  s5_r4k:"認知的明晰さ", s5_r4v:"矯正後の集中力と明晰さの改善の報告。可能な血管または神経経路——研究中。",
+  s5_r5k:"集団変動性", s5_r5v:"C0が主要点対複数の主要点の一つである程度は様々。境界条件不明。",
+  s5_s_obs:"観察済み", s5_s_hyp:"仮説", s5_s_open:"オープン",
+  s5_note:"<b>認識論的注記：</b>「観察済み」とは症例全体で文書化されていることを意味します——対照研究によって確立されたのではありません。すべての関連は独立した検証が必要です。",
+
+  s6_eyebrow:"05 · 研究プログラム",
+  s6_title:"研究プログラム、教義ではない。",
+  s6_lead:"Primordocciputはラカトス的意味でのオープンな研究プログラムとして構築されています：検証と修正のために組織された反証可能な補助的主張に囲まれたハードコア仮説。",
+  s6_r1tag:"実証的基盤", s6_r1t:"症例観察", s6_r1b:"3,500件以上の構造化臨床観察が実証的基盤を形成しています：初期設定、介入記録、フォローアップを含む症例。",
+  s6_r2tag:"ハードコア", s6_r2t:"仮説", s6_r2b:"C0は全身性非対称が生じる可能性のある一次構造変位点です。仮説として述べられています——確立された事実ではありません。",
+  s6_r3tag:"検証可能性", s6_r3t:"反証基準", s6_r3b:"中核的な主張は、それらが偽とみなされる条件と対になっています。",
+  s6_r4tag:"フロンティア", s6_r4t:"オープンな問題", s6_r4b:"メカニズム、変化の持続性、集団変動性、仮説の境界はオープンな研究問題のままです。",
+  s6_note:"<b>設計要件：</b>観察と仮説は常にそのように標識されます。科学的謙虚さは構造的であり、修辞的ではありません。",
+
+  s7_eyebrow:"06 · 反証基準",
+  s7_title:"仮説が間違いとなる時。",
+  s7_lead:"反証できない仮説は科学的仮説ではありません。これらはPrimordocciput仮説が反証または実質的に修正されるとみなされる条件です。",
+  s7_f1k:"C0の優先性", s7_f1v:"厳密な比較研究がC0変位の矫正が他の接合点の矯正より大きな構造的改善をもたらさないことを示した場合、優先性の主張は反証されます。",
+  s7_f2k:"代償カスケード", s7_f2v:"文書化された症例がC0変位が大多数の症例で代償パターンに先行または予測しないことを示した場合、カスケードモデルは根本的な修正が必要になります。",
+  s7_f3k:"状態関連", s7_f3v:"対照研究がC0矯正と報告された状態変化（睡眠、集中力、エネルギー）の間に相関を見つけられない場合、それらの関連は放棄されます。",
+  s7_f4k:"再現性", s7_f4v:"訓練された観察者が同じ症例で同じC0変位パターンを確実に識別できない場合、観察的基盤は不十分となります。",
+  s7_note:"<b>現在の状況：</b>これらの基準は満たされていません。仮説はオープンなままです。これらの条件を検証できる独立した研究を歓迎します。",
+
+  s8_eyebrow:"07 · オープンな問題",
+  s8_title:"私たちが知らないこと。",
+  s8_lead:"これらは仮説の正直な境界——回避されずに認められた問題です。",
+  s8_q1:"C0変位と全身性非対称を結ぶメカニズムは何ですか？",
+  s8_a1:"最も有力な経路は、固有受容覚の乱れ、後頭下筋群からの変容した求心性信号、および頭蓋頸椎移行部での可能な血管効果を含みます。これらのメカニズムのいずれもPrimordocciput仮説に特化した対照研究では確立されていません。",
+  s8_q2:"構造矯正の持続性はどの程度ですか？",
+  s8_a2:"臨床観察は日から月にわたる変化を文書化しています。長期的な持続性——および矯正が維持対逆転する条件——はまだ系統的に研究されていません。",
+  s8_q3:"C0はすべての症例で主要点ですか、それとも複数の点の一つですか？",
+  s8_a3:"集団変動性が観察されます。文書化された症例の大多数で、C0変位が主要に見えます。しかし、別の点が優先性を取る可能性がある境界条件——体型、発達歴、外傷パターン——は定義されていません。",
+  s8_q4:"Primordocciputと既知の頭蓋頸椎病理の関係は何ですか？",
+  s8_a4:"Primordocciput仮説は亜臨床的な構造的設定を扱います——診断された病理ではありません。既知の状態との関係はまだ正式に研究されていない関連する研究問題です。",
+
+  s9_eyebrow:"08 · 症例観察",
+  s9_title:"文書化された観察。",
+  s9_lead:"構造化された症例ライブラリが時間の経過とともに設定を記録しています：初期構造パターン、介入歴、観察された変化、フォローアップ。",
+  s9_d1:"文書化された臨床観察", s9_d2:"年間の構造化観察",
+  s9_d3:"症例構造：初期→介入→フォローアップ", s9_d4:"継続的な文書化のためにオープン",
+  s9_disc:"<b>注：</b>症例は観察記録です。それらは仮説を説明しますが、有効性の対照証拠を構成しません。",
+
+  s10_eyebrow:"09 · 将来の研究",
+  s10_title:"研究が向かうべき場所。",
+  s10_lead:"これを臨床仮説から確立されたフレームワークに引き上げるために必要なことの正直な認識。",
+  s10_f1n:"優先度1", s10_f1t:"評価者間信頼性研究", s10_f1b:"訓練された観察者が同じ被験者で独立して同じC0変位パターンを識別できますか？これが基本的な再現性テストです。",
+  s10_f2n:"優先度2", s10_f2t:"矯正の対照比較", s10_f2b:"C0の特定の矯正は他の接合点の矯正より大きな下流構造変化をもたらしますか？これは優先性の主張を直接テストします。",
+  s10_f3n:"優先度3", s10_f3t:"メカニズム調査", s10_f3b:"どの神経、血管、または固有受容覚経路がC0矯正と状態変化の間の観察された関連を媒介しますか？",
+  s10_f4n:"優先度4", s10_f4t:"縦断的持続性追跡", s10_f4b:"構造矯正が持続するかどうか、どのような条件下で、何が逆転を予測するかを確立するための3、6、12、24ヶ月での系統的フォローアップ。",
+  s10_note:"<b>オープンな招待：</b>これらの仮説のテストに興味がある研究者、臨床家、機関はinfo@primordocciput.orgに連絡してください。",
+
+  s11_eyebrow:"10 · 連絡",
+  s11_title:"お問い合わせ。",
+  s11_lead:"研究照会、臨床的な質問、協力提案、または仮説に関する連絡のために。",
+  s11_note:"研究照会、協力提案、実質的な臨床的質問に回答します。診断や治療は提供していません。",
+
+  f_line1:"Primordocciput——オープンな研究下の臨床仮説。",
+  f_line2:"PRIMORDISの研究プログラム内で開発 · アンソロポノミーの一部。",
+  f_disc:"研究および教育コンテンツ。医学的アドバイスではありません。診断ツールではありません。",
+  f_rights:"© 2026 Primordocciput. 観察と仮説はそのように標識されています。"
+},
+
+ko:{
+  nav_hypothesis:"가설", nav_compensation:"보상", nav_research:"연구", nav_cases:"사례", nav_contact:"연락",
+  hero_eyebrow:"임상 가설 · 두개경추 접합부",
+  hero_title:"하나의 점. <em>전신적</em> 결과.",
+  hero_sub:"Primordocciput은 가설입니다: C0——두개경추 접합부——에 일차 변위점이 존재하며, 거기서 보상적 비대칭이 전체 구조 시스템에 퍼져나간다는 것입니다.",
+  hero_cta1:"가설 읽기", hero_cta2:"연구 프로그램",
+  hero_note:"개방형 연구 가설. 진단이 아닙니다. 치료 프로토콜이 아닙니다.",
+  ax_c0a:"일차 변위", ax_c0b:"(가설)", ax_axis:"구조축", ax_comp:"보상 연쇄",
+  ax_scheme:"PRIMORDOCCIPUT · C0 모델",
+  hero_fig:"모식도——해부학적 렌더링이 아닙니다.",
+
+  s2_eyebrow:"01 · 가설",
+  s2_title:"Primordocciput 가설.",
+  s2_lead:"대부분의 구조적 개입은 하류 보상을 다룹니다. Primordocciput 가설은 다른 출발점을 제안합니다: 두개경추 접합부의 일차 변위로, 이것이 아래의 모든 것에 선행하며 조직화합니다.",
+  s2_h_label:"핵심 진술",
+  s2_h_quote:"C0——환추후두관절——에서, 일차 구조 변위가 전신의 비대칭성, 부하 패턴, 그리고 신체 전체의 적응적 보상 연쇄의 조직적 기원으로 작용할 수 있습니다.",
+  s2_h_sub:"이 변위가 유일한 요인은 아닙니다. 일차적 요인으로 제안됩니다——연쇄 적응이 필요하고 예측 가능해지는 점입니다. 가설은 반증 가능하며 그 한계는 활발히 연구 중입니다.",
+  s2_h_status:"인식론적 상태: 연구 중인 임상 가설 · 확립된 사실이 아님",
+  s2_c1tag:"기원", s2_c1t:"일차 변위", s2_c1b:"C0 변위가 구조적 시퀀스를 시작합니다. 보상을 읽을 수 있기 전에, 일차 점을 찾아야 합니다.",
+  s2_c2tag:"연쇄", s2_c2t:"전파", s2_c2b:"C0에서, 시스템은 눈을 수평으로 유지하고 직립 자세를 유지하기 위해 반적응을 구축합니다. 각 적응은 다른 곳에 부하를 만듭니다.",
+  s2_c3tag:"결과", s2_c3t:"시스템 부하", s2_c3b:"보상 연쇄의 누적 부하——초기 변위가 아닌——가 증상이 일반적으로 나타나는 곳입니다.",
+
+  s3_eyebrow:"02 · 구조축",
+  s3_title:"참조로서의 구조축.",
+  s3_lead:"두개척추 축은 모든 구조적 관계가 측정되는 참조선입니다. C0는 그 꼭대기에 위치합니다——거기서의 어떤 변위도 전체 참조를 따라 아래로 전파됩니다.",
+  s3_l1t:"구조축", s3_l1b:"머리, 척추, 골반의 수직 조직——전체 시스템의 참조선.",
+  s3_l2t:"보상 연쇄", s3_l2b:"비대칭 부하 분배를 대가로 균형을 유지하는 적응적 반변위.",
+  s3_l3t:"부하 분배", s3_l3b:"무게, 긴장, 운동이 구조 전체에서 어떻게 공유——또는 집중——되는지.",
+  s3_l4t:"적응 여유", s3_l4b:"시스템이 신호를 생성하기 전에 새로운 부하를 흡수하는 잔여 용량.",
+
+  s4_eyebrow:"03 · 보상 패턴",
+  s4_title:"보상이 어떻게 나타나는가.",
+  s4_lead:"Primordocciput 가설이 성립한다면, 보상은 예측 가능한 패턴을 따릅니다. 이것들은 무작위 증상이 아닙니다——구조적 제약 하에서 시스템이 작업을 수행하는 것입니다.",
+  s4_c1tag:"패턴 A", s4_c1t:"재발", s4_c1b:"일차 변위가 해결되지 않으면, 같은 신호가 돌아옵니다——종종 같은 장소, 같은 쪽에.",
+  s4_c2tag:"패턴 B", s4_c2t:"이동", s4_c2b:"한 영역에서 잠잠해진 부하가 다른 영역에 나타납니다. 신호는 이동하지만, 기저 패턴은 이동하지 않습니다.",
+  s4_c3tag:"패턴 C", s4_c3t:"집합", s4_c3b:"수면의 질, 집중력, 목 긴장, 기분——겉보기에 관련 없어 보이는 신호들은 종종 하나의 구조적 맥락을 공유합니다.",
+  s4_close:"패턴은 신체가 무엇이 잘못되었는지에 대한 언어를 찾기 전에 제공하는 증거입니다.",
+
+  s5_eyebrow:"04 · 관찰된 연관성",
+  s5_title:"관찰된 것.",
+  s5_lead:"3,500건 이상의 문서화된 사례가 구조화된 관찰의 기반을 형성합니다. 다음 연관성이 주목되었습니다. 각각 인식론적 상태를 가집니다——관찰됨, 가설적, 또는 열림.",
+  s5_col1:"영역", s5_col2:"관찰된 연관성", s5_col3:"상태",
+  s5_r1k:"경추 긴장", s5_r1v:"임상 관찰에서 C0 변위와 높은 공동 발생. 측면 특이적이며 위치적으로 안정적.",
+  s5_r2k:"부하 비대칭", s5_r2v:"좌우 구조 부하의 측정 가능한 차이. 문서화된 사례에서 일관됨.",
+  s5_r3k:"수면의 질", s5_r3v:"구조 교정 후 보고된 수면 변화. 메커니즘 미확립.",
+  s5_r4k:"인지적 명료성", s5_r4v:"교정 후 집중력과 명료성 개선 보고. 가능한 혈관 또는 신경 경로——연구 중.",
+  s5_r5k:"집단 변동성", s5_r5v:"C0가 일차 점 대 여러 일차 점 중 하나인 정도는 다양함. 경계 조건 불명.",
+  s5_s_obs:"관찰됨", s5_s_hyp:"가설", s5_s_open:"열림",
+  s5_note:"<b>인식론적 주의사항:</b> '관찰됨'은 사례 전반에 걸쳐 문서화되었음을 의미합니다——대조 연구로 확립된 것이 아닙니다. 모든 연관성은 독립적 검증이 필요합니다.",
+
+  s6_eyebrow:"05 · 연구 프로그램",
+  s6_title:"연구 프로그램, 교리가 아닌.",
+  s6_lead:"Primordocciput은 라카토스적 의미에서 열린 연구 프로그램으로 구축되었습니다: 검증과 수정을 위해 조직된 반증 가능한 보조적 주장들로 둘러싸인 핵심 가설.",
+  s6_r1tag:"경험적 기반", s6_r1t:"사례 관찰", s6_r1b:"3,500건 이상의 구조화된 임상 관찰이 경험적 기반을 형성합니다: 초기 구성, 개입 기록, 추적 관찰이 포함된 사례.",
+  s6_r2tag:"핵심", s6_r2t:"가설", s6_r2b:"C0는 전신 비대칭이 발생할 수 있는 일차 구조 변위점입니다. 가설로 진술됨——확립된 사실이 아님.",
+  s6_r3tag:"검증 가능성", s6_r3t:"반증 기준", s6_r3b:"핵심 주장은 거짓으로 간주될 조건과 쌍을 이룹니다.",
+  s6_r4tag:"프론티어", s6_r4t:"열린 문제", s6_r4b:"메커니즘, 변화의 지속성, 집단 변동성, 가설의 경계는 열린 연구 문제로 남아 있습니다.",
+  s6_note:"<b>설계 요구사항:</b> 관찰과 가설은 항상 그렇게 표시됩니다. 과학적 겸손함은 구조적이며 수사학적이지 않습니다.",
+
+  s7_eyebrow:"06 · 반증 기준",
+  s7_title:"가설이 틀릴 때.",
+  s7_lead:"반증할 수 없는 가설은 과학적 가설이 아닙니다. 이것들은 Primordocciput 가설이 반증되거나 실질적으로 수정된 것으로 간주될 조건입니다.",
+  s7_f1k:"C0 우선성", s7_f1v:"엄격한 비교 연구가 C0 변위 교정이 다른 접합 점 교정보다 더 큰 구조적 개선을 생산하지 않는다고 보여준다면, 우선성 주장은 반증됩니다.",
+  s7_f2k:"보상 연쇄", s7_f2v:"문서화된 사례가 C0 변위가 대부분의 사례에서 보상 패턴에 선행하거나 예측하지 않는다고 보여준다면, 연쇄 모델은 근본적인 수정이 필요합니다.",
+  s7_f3k:"상태 연관성", s7_f3v:"대조 연구가 C0 교정과 보고된 상태 변화(수면, 집중력, 에너지) 사이의 상관 관계를 찾지 못한다면, 그 연관성은 포기됩니다.",
+  s7_f4k:"재현성", s7_f4v:"훈련된 관찰자가 같은 사례에서 같은 C0 변위 패턴을 신뢰성 있게 식별할 수 없다면, 관찰 기반은 불충분합니다.",
+  s7_note:"<b>현재 상태:</b> 이 기준은 충족되지 않았습니다. 가설은 열려 있습니다. 이 조건들을 테스트할 수 있는 독립적 연구를 환영합니다.",
+
+  s8_eyebrow:"07 · 열린 문제",
+  s8_title:"우리가 모르는 것.",
+  s8_lead:"이것들은 가설의 정직한 경계입니다——회피되지 않고 인정되는 문제들.",
+  s8_q1:"C0 변위와 전신 비대칭을 연결하는 메커니즘은 무엇입니까?",
+  s8_a1:"가장 그럴듯한 경로는 고유감각 교란, 후두하 근육군의 변형된 구심성 신호, 두개경추 접합부의 가능한 혈관 효과를 포함합니다. 이 메커니즘 중 어느 것도 Primordocciput 가설에 특화된 대조 연구에서 확립되지 않았습니다.",
+  s8_q2:"구조적 교정의 지속성은 어떻습니까?",
+  s8_a2:"임상 관찰은 며칠에서 몇 달에 걸친 변화를 문서화합니다. 장기적 지속성——그리고 교정이 유지 대 역전되는 조건——은 아직 체계적으로 연구되지 않았습니다.",
+  s8_q3:"C0는 모든 사례에서 일차 점입니까, 아니면 여러 점 중 하나입니까?",
+  s8_a3:"집단 변동성이 관찰됩니다. 문서화된 사례의 대다수에서 C0 변위가 일차적으로 보입니다. 그러나 다른 점이 우선성을 가질 수 있는 경계 조건——체형, 발달 이력, 외상 패턴——은 정의되지 않았습니다.",
+  s8_q4:"Primordocciput과 알려진 두개경추 병리학의 관계는 무엇입니까?",
+  s8_a4:"Primordocciput 가설은 아임상 구조 구성을 다룹니다——진단된 병리학이 아닙니다. 알려진 상태와의 관계는 아직 공식적으로 연구되지 않은 관련 연구 문제입니다.",
+
+  s9_eyebrow:"08 · 사례 관찰",
+  s9_title:"문서화된 관찰.",
+  s9_lead:"구조화된 사례 라이브러리가 시간에 따라 구성을 기록합니다: 초기 구조 패턴, 개입 이력, 관찰된 변화, 추적 관찰.",
+  s9_d1:"문서화된 임상 관찰", s9_d2:"년간의 구조화된 관찰",
+  s9_d3:"사례 구조: 초기→개입→추적 관찰", s9_d4:"지속적인 문서화를 위해 열림",
+  s9_disc:"<b>주의:</b> 사례는 관찰 기록입니다. 가설을 설명하지만, 효능의 대조 증거를 구성하지 않습니다.",
+
+  s10_eyebrow:"09 · 미래 연구",
+  s10_title:"연구가 가야 할 곳.",
+  s10_lead:"이것을 임상 가설에서 확립된 프레임워크로 높이기 위해 필요한 것에 대한 정직한 인정.",
+  s10_f1n:"우선순위 1", s10_f1t:"평가자 간 신뢰성 연구", s10_f1b:"훈련된 관찰자가 같은 피험자에서 독립적으로 같은 C0 변위 패턴을 식별할 수 있습니까? 이것이 기본적인 재현성 테스트입니다.",
+  s10_f2n:"우선순위 2", s10_f2t:"교정 대조 비교", s10_f2b:"C0의 특정 교정이 다른 접합 점 교정보다 더 큰 하류 구조 변화를 생산합니까? 이것은 우선성 주장을 직접 테스트합니다.",
+  s10_f3n:"우선순위 3", s10_f3t:"메커니즘 조사", s10_f3b:"어떤 신경, 혈관, 또는 고유감각 경로가 C0 교정과 상태 변화 사이의 관찰된 연관성을 매개합니까?",
+  s10_f4n:"우선순위 4", s10_f4t:"종단적 지속성 추적", s10_f4b:"구조적 교정이 지속되는지, 어떤 조건에서, 무엇이 역전을 예측하는지를 확립하기 위한 3, 6, 12, 24개월에서의 체계적 추적 관찰.",
+  s10_note:"<b>열린 초대:</b> 이 가설을 테스트하는 데 관심이 있는 연구자, 임상의, 기관은 info@primordocciput.org로 연락하도록 초대됩니다.",
+
+  s11_eyebrow:"10 · 연락",
+  s11_title:"연락하기.",
+  s11_lead:"연구 문의, 임상 질문, 협력 제안, 또는 가설에 관한 서신을 위해.",
+  s11_note:"연구 문의, 협력 제안, 실질적인 임상 질문에 답변합니다. 진단이나 치료는 제공하지 않습니다.",
+
+  f_line1:"Primordocciput——개방적 연구 하의 임상 가설.",
+  f_line2:"PRIMORDIS 연구 프로그램 내에서 개발 · 인류학의 일부.",
+  f_disc:"연구 및 교육 콘텐츠. 의학적 조언이 아닙니다. 진단 도구가 아닙니다.",
+  f_rights:"© 2026 Primordocciput. 관찰과 가설은 그렇게 표시되었습니다."
+}
+};
+
+let currentLang = "en";
+let currentTheme = "dark";
+
+(function(){
+  const nav = (navigator.language || "en").toLowerCase();
+  if(nav.startsWith("ru")||nav.startsWith("uk")||nav.startsWith("kk")||nav.startsWith("ky")||nav.startsWith("uz")||nav.startsWith("be")||nav.startsWith("tg")) currentLang="ru";
+  else if(nav.startsWith("de")||nav.startsWith("lb")||nav.startsWith("gsw")) currentLang="de";
+  else if(nav.startsWith("zh")) currentLang="zh";
+  else if(nav.startsWith("ja")) currentLang="ja";
+  else if(nav.startsWith("ko")) currentLang="ko";
+  else if(nav.startsWith("ar")) currentLang="ar";
+  else if(nav.startsWith("fr")||nav.startsWith("oc")) currentLang="fr";
+  else if(nav.startsWith("es")||nav.startsWith("ca")||nav.startsWith("gl")) currentLang="es";
+})();
+
+function applyLang(lang){
+  currentLang=lang;
+  const dict=I18N[lang];
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key=el.getAttribute("data-i18n");
+    if(dict[key]!==undefined) el.innerHTML=dict[key];
+  });
+  document.documentElement.lang=lang;
+  document.querySelectorAll(".lang button").forEach(b=>{
+    b.classList.toggle("on",b.getAttribute("data-lang")===lang);
+  });
+  // RTL toggle
+  document.documentElement.dir=(lang==="ar")?"rtl":"ltr";
+}
+
+function applyTheme(theme){
+  currentTheme=theme;
+  document.documentElement.setAttribute("data-theme",theme);
+  const icon=document.getElementById("themeIcon");
+  if(theme==="dark"){
+    icon.innerHTML='<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+  } else {
+    icon.innerHTML='<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';
+  }
+}
+
+document.querySelectorAll(".lang button").forEach(b=>{
+  b.addEventListener("click",()=>applyLang(b.getAttribute("data-lang")));
+});
+document.getElementById("themeBtn").addEventListener("click",()=>{
+  applyTheme(currentTheme==="dark"?"light":"dark");
+});
+
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
+},{threshold:0.08});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+applyLang(currentLang);
+applyTheme("dark");
+</script>
+</body>
+</html>
