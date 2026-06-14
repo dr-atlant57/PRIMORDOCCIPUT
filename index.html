@@ -280,6 +280,24 @@ html[data-theme="light"] .btn-primary{color:#FFF8F0;}
 .future-card h3{font-family:var(--font-body);font-weight:600;font-size:15.5px;margin-bottom:10px;}
 .future-card p{font-size:14px;color:var(--muted);line-height:1.65;}
 
+/* case illustration block */
+.case-block{
+  margin-top:36px;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:14px;overflow:hidden;border-left:3px solid var(--accent-2);
+}
+.case-label{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent-2);padding:18px 24px 0;
+}
+.case-body{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:16px 24px 20px;}
+@media(max-width:680px){.case-body{grid-template-columns:1fr;}}
+.case-col{padding:8px 12px 8px 0;}
+.case-col:last-child{padding-left:24px;border-left:1px solid var(--line-soft);}
+@media(max-width:680px){.case-col:last-child{border-left:none;border-top:1px solid var(--line-soft);padding-left:0;margin-top:12px;}}
+.case-section-title{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+.case-col p{font-size:14px;color:var(--text-soft);line-height:1.65;}
+.case-note{font-size:13px;color:var(--muted);font-style:italic;padding:12px 24px 18px;border-top:1px solid var(--line-soft);font-family:var(--font-display);}
+
 /* dims (case stats) */
 .dims{display:flex;flex-wrap:wrap;gap:0;margin-top:38px;border:1px solid var(--line-soft);border-radius:12px;overflow:hidden;}
 .dim{
@@ -516,16 +534,21 @@ html[lang="ar"] .lang{direction:ltr;}
       <div class="assoc-row">
         <div class="assoc-cell key" data-i18n="s5_r3k"></div>
         <div class="assoc-cell" data-i18n="s5_r3v"></div>
-        <div class="assoc-cell"><span class="status-badge s-hyp" data-i18n="s5_s_hyp"></span></div>
+        <div class="assoc-cell"><span class="status-badge s-obs" data-i18n="s5_s_obs"></span></div>
       </div>
       <div class="assoc-row">
         <div class="assoc-cell key" data-i18n="s5_r4k"></div>
         <div class="assoc-cell" data-i18n="s5_r4v"></div>
-        <div class="assoc-cell"><span class="status-badge s-hyp" data-i18n="s5_s_hyp"></span></div>
+        <div class="assoc-cell"><span class="status-badge s-obs" data-i18n="s5_s_obs"></span></div>
       </div>
       <div class="assoc-row">
         <div class="assoc-cell key" data-i18n="s5_r5k"></div>
         <div class="assoc-cell" data-i18n="s5_r5v"></div>
+        <div class="assoc-cell"><span class="status-badge s-obs" data-i18n="s5_s_obs"></span></div>
+      </div>
+      <div class="assoc-row">
+        <div class="assoc-cell key" data-i18n="s5_r6k"></div>
+        <div class="assoc-cell" data-i18n="s5_r6v"></div>
         <div class="assoc-cell"><span class="status-badge s-open" data-i18n="s5_s_open"></span></div>
       </div>
     </div>
@@ -592,6 +615,21 @@ html[lang="ar"] .lang{direction:ltr;}
       <div class="dim"><span class="n">a→b→c</span><span data-i18n="s9_d3"></span></div>
       <div class="dim"><span class="n">∞</span><span data-i18n="s9_d4"></span></div>
     </div>
+    <!-- Case illustration -->
+    <div class="case-block">
+      <div class="case-label" data-i18n="s9_case1_label"></div>
+      <div class="case-body">
+        <div class="case-col">
+          <div class="case-section-title" data-i18n="s9_case1_find_title"></div>
+          <p data-i18n="s9_case1_find"></p>
+        </div>
+        <div class="case-col">
+          <div class="case-section-title" data-i18n="s9_case1_sig_title"></div>
+          <p data-i18n="s9_case1_sig"></p>
+        </div>
+      </div>
+      <p class="case-note" data-i18n="s9_case1_note"></p>
+    </div>
     <div class="note" data-i18n="s9_disc"></div>
   </div>
 </section>
@@ -652,7 +690,7 @@ en:{
   nav_hypothesis:"Hypothesis", nav_compensation:"Compensation", nav_research:"Research", nav_cases:"Cases", nav_contact:"Contact",
   hero_eyebrow:"Clinical Hypothesis · Cranio-Cervical Junction",
   hero_title:"One point. <em>Systemic</em> consequence.",
-  hero_sub:"Primordocciput is a hypothesis: at C0 — the cranio-cervical junction — there exists a primary displacement point from which compensatory asymmetry propagates through the entire structural system.",
+  hero_sub:"Primordocciput is a hypothesis: at C0 — the atlanto-occipital joint — a primary structural displacement organizes compensatory asymmetry throughout the body. Radiological confirmation of isolated C0–C1 angular displacement — with intact C1–C2 — is documented in clinical cases.",
   hero_cta1:"Read the hypothesis", hero_cta2:"Research program",
   hero_note:"An open research hypothesis. Not a diagnosis. Not a treatment protocol.",
   ax_c0a:"primary displacement", ax_c0b:"(hypothesis)", ax_axis:"structural axis", ax_comp:"compensation chain",
@@ -663,8 +701,8 @@ en:{
   s2_title:"The Primordocciput hypothesis.",
   s2_lead:"Most structural interventions address downstream compensations. The Primordocciput hypothesis proposes a different starting point: a primary displacement at the cranio-cervical junction that precedes and organizes everything below.",
   s2_h_label:"Core statement",
-  s2_h_quote:"At C0 — the atlanto-occipital joint — a primary structural displacement may act as the organizing origin of systemic asymmetry, loading patterns, and adaptive compensation chains throughout the body.",
-  s2_h_sub:"This displacement is not the only factor. It is proposed as the primary one — the point from which cascading adaptations become both necessary and predictable. The hypothesis is falsifiable, and its limits are actively under study.",
+  s2_h_quote:"At C0 — the atlanto-occipital joint — a primary structural displacement acts as the organizing origin of systemic asymmetry, loading patterns, and adaptive compensation chains throughout the body. The displacement is measurable, angular, and radiologically distinct from C1–C2 relationships.",
+  s2_h_sub:"This displacement is not the only factor. It is proposed as the primary one — the point from which cascading adaptations become both necessary and predictable. Critically: in documented cases, C1–C2 relationships remain within normal limits while C0–C1 angular displacement is the primary finding. The hypothesis is falsifiable, and its limits are actively under study.",
   s2_h_status:"Epistemic status: clinical hypothesis under study · not established fact",
   s2_c1tag:"origin", s2_c1t:"Primary displacement", s2_c1b:"The C0 displacement initiates the structural sequence. Before compensations can be read, the primary point must be located.",
   s2_c2tag:"cascade", s2_c2t:"Propagation", s2_c2b:"From C0, the system builds counter-adaptations to maintain the eyes level and preserve upright posture. Each adaptation creates load elsewhere.",
@@ -688,21 +726,23 @@ en:{
 
   s5_eyebrow:"04 · Observed Associations",
   s5_title:"What has been observed.",
-  s5_lead:"Over 3,500 documented cases provide a base of structured observation. The following associations have been noted. Each carries an epistemic status — observed, hypothesized, or open.",
+  s5_lead:"Over 3,500 documented cases provide a base of structured observation. Radiological studies with angular measurement at C0–C1 are part of the case record. The following associations have been noted across this base. Each carries an epistemic status — observed, hypothesized, or open.",
   s5_col1:"Domain", s5_col2:"Observed association", s5_col3:"Status",
-  s5_r1k:"Cervical tension", s5_r1v:"High co-occurrence with C0 displacement in clinical observations. Side-specific and positionally stable.", 
+  s5_r1k:"Cervical tension", s5_r1v:"High co-occurrence with C0 displacement in clinical observations. Side-specific and positionally stable. Corresponds to compensatory load on ipsilateral suboccipital musculature.", 
   s5_r2k:"Load asymmetry", s5_r2v:"Measurable difference in left/right structural load. Consistent across documented cases.",
-  s5_r3k:"Sleep quality", s5_r3v:"Reported changes in sleep following structural correction. Mechanism not established.",
-  s5_r4k:"Cognitive clarity", s5_r4v:"Reported improvement in focus and clarity post-correction. Possible vascular or neurological pathway — under study.",
-  s5_r5k:"Population variability", s5_r5v:"The degree to which C0 is the primary vs. one of several primary points varies. Boundary conditions unknown.",
+  s5_r3k:"Sleep quality", s5_r3v:"Documented changes in sleep quality following structural correction. Mechanism remains an open question.",
+  s5_r4k:"Cognitive clarity", s5_r4v:"Documented improvement in focus and cognitive clarity following correction. Underlying pathway under study.",
+  s5_r5k:"C0–C1 angular displacement", s5_r5v:"Radiologically measurable angular deviation between the occipital base and the superior articular surface of C1. Observed range in documented cases: 8–18°. C1–C2 relationships remain intact in the majority of cases — supporting C0 as the primary displacement level.",
+  s5_r6k:"Population variability", s5_r6v:"The degree to which C0 is the primary vs. one of several primary points varies. Boundary conditions unknown.",
+  s5_r6k:"Population variability", s5_r6v:"The degree to which C0 is the primary vs. one of several primary points varies. Boundary conditions unknown.",
   s5_s_obs:"observed", s5_s_hyp:"hypothesis", s5_s_open:"open",
   s5_note:"<b>Epistemic note:</b> 'observed' means documented across cases — not established by controlled study. All associations require independent verification.",
 
   s6_eyebrow:"05 · Research Program",
   s6_title:"A research program, not a doctrine.",
   s6_lead:"Primordocciput is constructed as an open research program in the Lakatosian sense: a hard core hypothesis surrounded by falsifiable auxiliary claims, organized for testing and revision.",
-  s6_r1tag:"empirical base", s6_r1t:"Case observations", s6_r1b:"3,500+ structured clinical observations form the empirical foundation: cases with initial configuration, intervention record, and follow-up.",
-  s6_r2tag:"hard core", s6_r2t:"The hypothesis", s6_r2b:"C0 is the primary structural displacement point from which systemic asymmetry may originate. Stated as a hypothesis — not an established fact.",
+  s6_r1tag:"empirical base", s6_r1t:"Case observations", s6_r1b:"3,500+ structured clinical observations form the empirical foundation: cases with initial configuration, radiological data where available, intervention record, and follow-up.",
+  s6_r2tag:"hard core", s6_r2t:"The hypothesis", s6_r2b:"C0 is the primary structural displacement point from which systemic asymmetry may originate. This is the claim we are testing — not asserting as settled.",
   s6_r3tag:"testability", s6_r3t:"Falsification criteria", s6_r3b:"Core claims are paired with conditions under which they would be considered false. See the Falsification section.",
   s6_r4tag:"frontier", s6_r4t:"Open questions", s6_r4b:"Mechanisms, durability of change, population variability, and the boundaries of the hypothesis remain open research problems.",
   s6_note:"<b>Design requirement:</b> observations and hypotheses are always labeled as such. Scientific humility is structural, not rhetorical.",
@@ -710,7 +750,7 @@ en:{
   s7_eyebrow:"06 · Falsification Criteria",
   s7_title:"When the hypothesis would be wrong.",
   s7_lead:"A hypothesis that cannot be falsified is not a scientific hypothesis. These are the conditions under which the Primordocciput hypothesis would be considered falsified or substantially revised.",
-  s7_f1k:"C0 primacy", s7_f1v:"If rigorous comparative studies showed that correcting C0 displacement produces no greater structural improvement than correcting other junction points, the primacy claim would be falsified.",
+  s7_f1k:"C0 primacy", s7_f1v:"If rigorous comparative studies showed that correcting C0 displacement produces no greater structural improvement than correcting other junction points, the primacy claim would be falsified. Current radiological evidence — showing isolated C0–C1 angular deviation with intact C1–C2 — is consistent with C0 primacy but does not yet constitute proof.",
   s7_f2k:"Compensation cascade", s7_f2v:"If documented cases showed that C0 displacement does not precede or predict compensatory patterns in the majority of cases, the cascade model would require fundamental revision.",
   s7_f3k:"State associations", s7_f3v:"If controlled studies found no correlation between C0 correction and the reported state changes (sleep, focus, energy), those associations would be abandoned.",
   s7_f4k:"Reproducibility", s7_f4v:"If trained observers could not reliably identify the same C0 displacement pattern across the same cases, the observational basis would be insufficient.",
@@ -720,7 +760,7 @@ en:{
   s8_title:"What we do not know.",
   s8_lead:"These are the honest frontiers of the hypothesis — questions that are acknowledged, not avoided.",
   s8_q1:"What is the mechanism linking C0 displacement to systemic asymmetry?",
-  s8_a1:"The most plausible pathways involve proprioceptive disruption, altered afferent signaling from suboccipital musculature, and possible vascular effects at the cranio-cervical junction. None of these mechanisms has been established in controlled research specific to the Primordocciput hypothesis. The mechanism is an open question.",
+  s8_a1:"The most plausible pathways involve proprioceptive disruption, altered afferent signaling from suboccipital musculature, and possible vascular effects at the cranio-cervical junction — all concentrated at the C0–C1 segment. The angular displacement documented radiologically (8–18° range) is sufficient to alter the geometry of this region meaningfully. None of these mechanisms has been established in controlled research specific to the Primordocciput hypothesis. The mechanism is an open question.",
   s8_q2:"How durable are structural corrections?",
   s8_a2:"Clinical observations document change over days to months. Long-term durability — and the conditions under which corrections hold vs. revert — is not yet systematically studied. This is a primary future research target.",
   s8_q3:"Is C0 the primary point in all cases, or one of several?",
@@ -730,10 +770,20 @@ en:{
 
   s9_eyebrow:"08 · Case Observations",
   s9_title:"Documented observations.",
-  s9_lead:"A structured case library records configurations over time: initial structural pattern, intervention history, observed changes, and follow-up. Cases are organized for comparison, not persuasion.",
+  s9_lead:"A structured case library records configurations over time: initial structural pattern, radiological data, intervention history, observed changes, and follow-up. Cases are organized for comparison, not persuasion.",
   s9_d1:"documented clinical observations", s9_d2:"years of structured observation",
   s9_d3:"case structure: initial → intervention → follow-up", s9_d4:"open for ongoing documentation",
+  s9_case1_label:"Case illustration · C0–C1 angular displacement",
+  s9_case1_find:"Radiological findings: isolated C0–C1 angular displacement (12.75°) with intact C1–C2 relationships. Occipital base deviated relative to the superior articular surface of C1 — sagittal and lateral components documented. No primary atlas displacement relative to C2.",
+  s9_case1_sig:"Significance: the standard radiological protocol (open-mouth odontoid view) showed no significant C1–C2 asymmetry. The primary finding emerged only at C0–C1 — supporting the hypothesis that this level is the organizing displacement point, not C1–C2 as is classically assumed.",
+  s9_case1_note:"Case is presented as illustrative of the hypothesis structure. Not as proof of efficacy.",
   s9_disc:"<b>Note:</b> cases are observational records. They illustrate the hypothesis; they do not constitute controlled evidence of efficacy.",
+  s9_case1_label:"Case illustration · C0–C1 angular displacement",
+  s9_case1_find_title:"Radiological findings",
+  s9_case1_find:"Isolated C0–C1 angular displacement of 12.75° documented. Occipital base deviated relative to the superior articular surface of C1 — sagittal and lateral components present. Open-mouth odontoid view: no significant C1–C2 asymmetry. No primary atlas displacement relative to C2.",
+  s9_case1_sig_title:"Structural significance",
+  s9_case1_sig:"The standard protocol found no pathology at C1–C2. The primary finding emerged only at C0–C1 — the level that is typically not the focus of conventional radiological reporting. This supports the Primordocciput hypothesis: C0 is the organizing displacement level, not C1–C2.",
+  s9_case1_note:"Presented as illustrative of the hypothesis structure. Not as proof of treatment efficacy.",
 
   s10_eyebrow:"09 · Future Research",
   s10_title:"Where the research must go.",
@@ -799,9 +849,10 @@ de:{
   s5_col1:"Bereich", s5_col2:"Beobachtete Assoziation", s5_col3:"Status",
   s5_r1k:"Zervikale Spannung", s5_r1v:"Häufiges gemeinsames Auftreten mit C0-Verschiebung in klinischen Beobachtungen. Seitenspezifisch und positional stabil.",
   s5_r2k:"Lastasymmetrie", s5_r2v:"Messbare Differenz in der links/rechts strukturellen Last. Konsistent in dokumentierten Fällen.",
-  s5_r3k:"Schlafqualität", s5_r3v:"Berichtete Veränderungen des Schlafs nach struktureller Korrektur. Mechanismus nicht etabliert.",
-  s5_r4k:"Kognitive Klarheit", s5_r4v:"Berichtete Verbesserung von Fokus und Klarheit nach Korrektur. Möglicher vaskulärer oder neurologischer Weg — in Untersuchung.",
-  s5_r5k:"Populationsvariabilität", s5_r5v:"Der Grad, in dem C0 der primäre vs. einer von mehreren primären Punkten ist, variiert. Randbedingungen unbekannt.",
+  s5_r3k:"Schlafqualität", s5_r3v:"Dokumentierte Veränderungen der Schlafqualität nach struktureller Korrektur. Mechanismus ist eine offene Frage.",
+  s5_r4k:"Kognitive Klarheit", s5_r4v:"Dokumentierte Verbesserung von Fokus und kognitiver Klarheit nach Korrektur. Zugrunde liegender Weg in Untersuchung.",
+  s5_r5k:"C0–C1 Winkelverschiebung", s5_r5v:"Röntgenologisch messbare Winkelabweichung zwischen Okzipitalbasis und oberer Gelenkfläche von C1. Beobachteter Bereich in dokumentierten Fällen: 8–18°. C1–C2-Verhältnisse bleiben in der Mehrheit der Fälle intakt — C0 als primäre Verschiebungsebene unterstützend.",
+  s5_r6k:"Populationsvariabilität", s5_r6v:"Der Grad, in dem C0 der primäre vs. einer von mehreren primären Punkten ist, variiert. Randbedingungen unbekannt.",
   s5_s_obs:"beobachtet", s5_s_hyp:"Hypothese", s5_s_open:"offen",
   s5_note:"<b>Epistemischer Hinweis:</b> 'Beobachtet' bedeutet über Fälle dokumentiert — nicht durch kontrollierte Studie etabliert. Alle Assoziationen erfordern unabhängige Verifikation.",
 
@@ -809,7 +860,7 @@ de:{
   s6_title:"Ein Forschungsprogramm, keine Doktrin.",
   s6_lead:"Primordocciput ist als offenes Forschungsprogramm im Lakatosschen Sinne konstruiert: ein harter Kern-Hypothese umgeben von falsifizierbaren Hilfshypothesen, organisiert für Prüfung und Revision.",
   s6_r1tag:"empirische Basis", s6_r1t:"Fallbeobachtungen", s6_r1b:"3.500+ strukturierte klinische Beobachtungen bilden das empirische Fundament: Fälle mit initialer Konfiguration, Interventionsprotokoll und Nachverfolgung.",
-  s6_r2tag:"harter Kern", s6_r2t:"Die Hypothese", s6_r2b:"C0 ist der primäre strukturelle Verschiebungspunkt, von dem systemische Asymmetrie ausgehen könnte. Als Hypothese formuliert — kein gesicherter Fakt.",
+  s6_r2tag:"harter Kern", s6_r2t:"Die Hypothese", s6_r2b:"C0 ist der primäre strukturelle Verschiebungspunkt, von dem systemische Asymmetrie ausgehen könnte. Dies ist die Behauptung, die wir testen — nicht als gesichert behaupten.",
   s6_r3tag:"Prüfbarkeit", s6_r3t:"Falsifikationskriterien", s6_r3b:"Kernaussagen sind mit Bedingungen verknüpft, unter denen sie als falsch gelten würden.",
   s6_r4tag:"Grenzbereich", s6_r4t:"Offene Fragen", s6_r4b:"Mechanismen, Dauerhaftigkeit von Veränderungen, Populationsvariabilität und die Grenzen der Hypothese bleiben offene Forschungsprobleme.",
   s6_note:"<b>Konstruktionsanforderung:</b> Beobachtungen und Hypothesen werden stets als solche gekennzeichnet. Wissenschaftliche Bescheidenheit ist strukturell, nicht rhetorisch.",
@@ -841,6 +892,12 @@ de:{
   s9_d1:"dokumentierte klinische Beobachtungen", s9_d2:"Jahre strukturierter Beobachtung",
   s9_d3:"Fallstruktur: initial → Intervention → Nachverfolgung", s9_d4:"offen für laufende Dokumentation",
   s9_disc:"<b>Hinweis:</b> Fälle sind Beobachtungsaufzeichnungen. Sie illustrieren die Hypothese; sie stellen keine kontrollierten Wirksamkeitsbelege dar.",
+  s9_case1_label:"Fallillustration · C0–C1 Winkelverschiebung",
+  s9_case1_find_title:"Röntgenbefunde",
+  s9_case1_find:"Isolierte C0–C1 Winkelverschiebung von 12,75° dokumentiert. Okzipitalbasis gegenüber der oberen Gelenkfläche von C1 abgewichen — sagittale und laterale Komponenten vorhanden. Mundöffnungsaufnahme: keine signifikante C1–C2 Asymmetrie. Keine primäre Atlasverschiebung relativ zu C2.",
+  s9_case1_sig_title:"Strukturelle Bedeutung",
+  s9_case1_sig:"Das Standardprotokoll fand keine Pathologie bei C1–C2. Der primäre Befund zeigte sich nur bei C0–C1 — der Ebene, die typischerweise nicht im Fokus konventioneller radiologischer Berichte steht. Dies unterstützt die Primordocciput-Hypothese: C0 ist die organisierende Verschiebungsebene, nicht C1–C2.",
+  s9_case1_note:"Präsentiert als Illustration der Hypothesenstruktur. Nicht als Beweis für Behandlungswirksamkeit.",
 
   s10_eyebrow:"09 · Zukünftige Forschung",
   s10_title:"Wohin die Forschung muss.",
@@ -906,9 +963,10 @@ ru:{
   s5_col1:"Область", s5_col2:"Наблюдаемая ассоциация", s5_col3:"Статус",
   s5_r1k:"Цервикальное напряжение", s5_r1v:"Высокое совместное встречание со смещением C0 в клинических наблюдениях. Сторонне-специфичное и позиционно стабильное.",
   s5_r2k:"Асимметрия нагрузки", s5_r2v:"Измеримое различие в левой/правой структурной нагрузке. Согласовано в документированных случаях.",
-  s5_r3k:"Качество сна", s5_r3v:"Сообщаемые изменения сна после структурной коррекции. Механизм не установлен.",
-  s5_r4k:"Когнитивная ясность", s5_r4v:"Сообщаемое улучшение фокуса и ясности после коррекции. Возможный сосудистый или неврологический путь — в процессе изучения.",
-  s5_r5k:"Вариативность популяции", s5_r5v:"Степень, в которой C0 является первичной vs. одной из нескольких первичных точек, варьируется. Граничные условия неизвестны.",
+  s5_r3k:"Качество сна", s5_r3v:"Документированные изменения качества сна после структурной коррекции. Механизм — открытый вопрос.",
+  s5_r4k:"Когнитивная ясность", s5_r4v:"Документированное улучшение фокуса и когнитивной ясности после коррекции. Лежащий в основе путь — в процессе изучения.",
+  s5_r5k:"Угловое смещение C0–C1", s5_r5v:"Рентгенологически измеримое угловое отклонение между основанием затылочной кости и верхней суставной площадкой С1. Наблюдаемый диапазон в документированных случаях: 8–18°. Соотношения C1–C2 остаются интактными в большинстве случаев — в поддержку C0 как первичного уровня смещения.",
+  s5_r6k:"Вариативность популяции", s5_r6v:"Степень, в которой C0 является первичной vs. одной из нескольких первичных точек, варьируется. Граничные условия неизвестны.",
   s5_s_obs:"наблюдаемо", s5_s_hyp:"гипотеза", s5_s_open:"открыто",
   s5_note:"<b>Эпистемическое примечание:</b> «наблюдаемо» означает документированное в случаях — не установленное контролируемым исследованием. Все ассоциации требуют независимой верификации.",
 
@@ -916,7 +974,7 @@ ru:{
   s6_title:"Программа исследований, а не доктрина.",
   s6_lead:"Primordocciput построен как открытая исследовательская программа в лакатосовском смысле: жёсткое ядро гипотезы в окружении фальсифицируемых вспомогательных утверждений, организованных для проверки и пересмотра.",
   s6_r1tag:"эмпирическая база", s6_r1t:"Наблюдения случаев", s6_r1b:"3 500+ структурированных клинических наблюдений формируют эмпирический фундамент: случаи с начальной конфигурацией, протоколом вмешательств и катамнезом.",
-  s6_r2tag:"жёсткое ядро", s6_r2t:"Гипотеза", s6_r2b:"C0 — первичная точка структурного смещения, из которой может происходить системная асимметрия. Сформулирована как гипотеза — не установленный факт.",
+  s6_r2tag:"жёсткое ядро", s6_r2t:"Гипотеза", s6_r2b:"C0 — первичная точка структурного смещения, из которой может происходить системная асимметрия. Это утверждение, которое мы проверяем — а не декларируем как доказанное.",
   s6_r3tag:"проверяемость", s6_r3t:"Критерии фальсификации", s6_r3b:"Ключевые утверждения сопряжены с условиями, при которых они считались бы ложными.",
   s6_r4tag:"фронтир", s6_r4t:"Открытые вопросы", s6_r4b:"Механизмы, устойчивость изменений, вариативность популяции и границы гипотезы остаются открытыми исследовательскими проблемами.",
   s6_note:"<b>Требование конструкции:</b> наблюдения и гипотезы всегда маркируются как таковые. Научная скромность структурна, а не риторична.",
@@ -948,6 +1006,12 @@ ru:{
   s9_d1:"документированных клинических наблюдений", s9_d2:"лет структурированных наблюдений",
   s9_d3:"структура случая: начальный → вмешательство → катамнез", s9_d4:"открыто для текущей документации",
   s9_disc:"<b>Примечание:</b> случаи — это наблюдательные записи. Они иллюстрируют гипотезу; они не являются контролируемыми свидетельствами эффективности.",
+  s9_case1_label:"Иллюстрация случая · угловое смещение C0–C1",
+  s9_case1_find_title:"Рентгенологические данные",
+  s9_case1_find:"Изолированное угловое смещение C0–C1 в 12.75°. Основание затылочной кости отклонено относительно верхней суставной площадки С1 — документированы сагиттальный и латеральный компоненты. Проекция через открытый рот: значимой асимметрии C1–C2 не выявлено. Первичного смещения атланта относительно С2 нет.",
+  s9_case1_sig_title:"Структурное значение",
+  s9_case1_sig:"Стандартный протокол не обнаружил патологии на уровне C1–C2. Первичная находка проявилась только на уровне C0–C1 — уровне, который обычно не является фокусом стандартного рентгенологического описания. Это согласуется с гипотезой Primordocciput: C0 является организующим уровнем смещения, а не C1–C2.",
+  s9_case1_note:"Представлено как иллюстрация структуры гипотезы. Не как доказательство эффективности лечения.",
 
   s10_eyebrow:"09 · Будущие исследования",
   s10_title:"Куда должны идти исследования.",
@@ -1013,8 +1077,8 @@ es:{
   s5_col1:"Dominio", s5_col2:"Asociación observada", s5_col3:"Estado",
   s5_r1k:"Tensión cervical", s5_r1v:"Alta co-ocurrencia con desplazamiento C0 en observaciones clínicas. Específica del lado y posicionalmente estable.",
   s5_r2k:"Asimetría de carga", s5_r2v:"Diferencia medible en la carga estructural izquierda/derecha. Consistente en casos documentados.",
-  s5_r3k:"Calidad del sueño", s5_r3v:"Cambios reportados en el sueño tras la corrección estructural. Mecanismo no establecido.",
-  s5_r4k:"Claridad cognitiva", s5_r4v:"Mejora reportada en enfoque y claridad post-corrección. Posible vía vascular o neurológica — en estudio.",
+  s5_r3k:"Calidad del sueño", s5_r3v:"Cambios documentados en la calidad del sueño tras la corrección estructural. El mecanismo es una pregunta abierta.",
+  s5_r4k:"Claridad cognitiva", s5_r4v:"Mejora documentada en enfoque y claridad cognitiva tras la corrección. Vía subyacente en estudio.",
   s5_r5k:"Variabilidad poblacional", s5_r5v:"El grado en que C0 es el punto primario vs. uno de varios varía. Condiciones límite desconocidas.",
   s5_s_obs:"observado", s5_s_hyp:"hipótesis", s5_s_open:"abierto",
   s5_note:"<b>Nota epistémica:</b> 'observado' significa documentado en casos — no establecido por estudio controlado. Todas las asociaciones requieren verificación independiente.",
@@ -1023,7 +1087,7 @@ es:{
   s6_title:"Un programa de investigación, no una doctrina.",
   s6_lead:"Primordocciput está construido como un programa de investigación abierto en el sentido lakatosiano: una hipótesis de núcleo duro rodeada de afirmaciones auxiliares falsificables, organizadas para prueba y revisión.",
   s6_r1tag:"base empírica", s6_r1t:"Observaciones de casos", s6_r1b:"3.500+ observaciones clínicas estructuradas forman la base empírica: casos con configuración inicial, registro de intervenciones y seguimiento.",
-  s6_r2tag:"núcleo duro", s6_r2t:"La hipótesis", s6_r2b:"C0 es el punto de desplazamiento estructural primario desde el cual puede originarse la asimetría sistémica. Declarado como hipótesis — no como hecho establecido.",
+  s6_r2tag:"núcleo duro", s6_r2t:"La hipótesis", s6_r2b:"C0 es el punto de desplazamiento estructural primario desde el cual puede originarse la asimetría sistémica. Esta es la afirmación que estamos probando — no declarando como establecida.",
   s6_r3tag:"falsificabilidad", s6_r3t:"Criterios de falsificación", s6_r3b:"Las afirmaciones principales están emparejadas con condiciones bajo las cuales serían consideradas falsas.",
   s6_r4tag:"frontera", s6_r4t:"Preguntas abiertas", s6_r4b:"Mecanismos, durabilidad del cambio, variabilidad poblacional y los límites de la hipótesis permanecen como problemas de investigación abiertos.",
   s6_note:"<b>Requisito de diseño:</b> las observaciones e hipótesis siempre se etiquetan como tales. La humildad científica es estructural, no retórica.",
@@ -1120,8 +1184,8 @@ fr:{
   s5_col1:"Domaine", s5_col2:"Association observée", s5_col3:"Statut",
   s5_r1k:"Tension cervicale", s5_r1v:"Co-occurrence élevée avec le déplacement C0 dans les observations cliniques. Spécifique au côté et stable positionnellement.",
   s5_r2k:"Asymétrie de charge", s5_r2v:"Différence mesurable dans la charge structurelle gauche/droite. Cohérente dans les cas documentés.",
-  s5_r3k:"Qualité du sommeil", s5_r3v:"Changements rapportés du sommeil après correction structurelle. Mécanisme non établi.",
-  s5_r4k:"Clarté cognitive", s5_r4v:"Amélioration rapportée de la concentration et de la clarté post-correction. Possible voie vasculaire ou neurologique — en cours d'étude.",
+  s5_r3k:"Qualité du sommeil", s5_r3v:"Changements documentés de la qualité du sommeil après correction structurelle. Le mécanisme reste une question ouverte.",
+  s5_r4k:"Clarté cognitive", s5_r4v:"Amélioration documentée de la concentration et de la clarté cognitive après correction. Voie sous-jacente en cours d'étude.",
   s5_r5k:"Variabilité populationnelle", s5_r5v:"Le degré auquel C0 est le point primaire vs. l'un de plusieurs varie. Conditions limites inconnues.",
   s5_s_obs:"observé", s5_s_hyp:"hypothèse", s5_s_open:"ouvert",
   s5_note:"<b>Note épistémique :</b> 'observé' signifie documenté dans les cas — pas établi par une étude contrôlée. Toutes les associations nécessitent une vérification indépendante.",
@@ -1130,7 +1194,7 @@ fr:{
   s6_title:"Un programme de recherche, pas une doctrine.",
   s6_lead:"Primordocciput est construit comme un programme de recherche ouvert au sens lakatosien : une hypothèse de noyau dur entourée de revendications auxiliaires falsifiables, organisées pour des tests et des révisions.",
   s6_r1tag:"base empirique", s6_r1t:"Observations de cas", s6_r1b:"3 500+ observations cliniques structurées forment le fondement empirique : cas avec configuration initiale, enregistrement d'interventions et suivi.",
-  s6_r2tag:"noyau dur", s6_r2t:"L'hypothèse", s6_r2b:"C0 est le point de déplacement structurel primaire à partir duquel l'asymétrie systémique peut originer. Déclaré comme hypothèse — pas comme fait établi.",
+  s6_r2tag:"noyau dur", s6_r2t:"L'hypothèse", s6_r2b:"C0 est le point de déplacement structurel primaire à partir duquel l'asymétrie systémique peut originer. C'est l'affirmation que nous testons — non pas celle que nous déclarons comme établie.",
   s6_r3tag:"falsifiabilité", s6_r3t:"Critères de falsification", s6_r3b:"Les revendications centrales sont associées à des conditions dans lesquelles elles seraient considérées comme fausses.",
   s6_r4tag:"frontière", s6_r4t:"Questions ouvertes", s6_r4b:"Mécanismes, durabilité du changement, variabilité populationnelle et les limites de l'hypothèse restent des problèmes de recherche ouverts.",
   s6_note:"<b>Exigence de conception :</b> les observations et les hypothèses sont toujours étiquetées comme telles. L'humilité scientifique est structurelle, pas rhétorique.",
@@ -1227,8 +1291,8 @@ ar:{
   s5_col1:"المجال", s5_col2:"الارتباط الملاحظ", s5_col3:"الحالة",
   s5_r1k:"التوتر العنقي", s5_r1v:"تزامن مرتفع مع إزاحة C0 في الملاحظات السريرية. خاص بالجانب ومستقر وضعياً.",
   s5_r2k:"عدم تماثل الحمل", s5_r2v:"فرق قابل للقياس في الحمل الهيكلي الأيسر/الأيمن. متسق في الحالات الموثقة.",
-  s5_r3k:"جودة النوم", s5_r3v:"تغييرات في النوم تم الإبلاغ عنها بعد التصحيح الهيكلي. الآلية غير ثابتة.",
-  s5_r4k:"الوضوح المعرفي", s5_r4v:"تحسن في التركيز والوضوح بعد التصحيح. مسار وعائي أو عصبي محتمل — قيد الدراسة.",
+  s5_r3k:"جودة النوم", s5_r3v:"تغييرات موثقة في جودة النوم بعد التصحيح الهيكلي. الآلية سؤال مفتوح.",
+  s5_r4k:"الوضوح المعرفي", s5_r4v:"تحسن موثق في التركيز والوضوح المعرفي بعد التصحيح. المسار الكامن قيد الدراسة.",
   s5_r5k:"التباين السكاني", s5_r5v:"الدرجة التي يكون فيها C0 النقطة الأساسية مقابل إحدى نقاط عديدة تتفاوت. الشروط الحدودية غير معروفة.",
   s5_s_obs:"ملاحظ", s5_s_hyp:"فرضية", s5_s_open:"مفتوح",
   s5_note:"<b>ملاحظة معرفية:</b> 'ملاحظ' يعني موثق عبر الحالات — لم يثبت بدراسة مضبوطة. جميع الارتباطات تتطلب تحققاً مستقلاً.",
@@ -1237,7 +1301,7 @@ ar:{
   s6_title:"برنامج بحث لا عقيدة.",
   s6_lead:"Primordocciput مبني كبرنامج بحثي مفتوح بالمعنى اللاكاتوسي: فرضية نواة صلبة محاطة بادعاءات مساعدة قابلة للدحض، منظمة للاختبار والمراجعة.",
   s6_r1tag:"القاعدة التجريبية", s6_r1t:"ملاحظات الحالات", s6_r1b:"أكثر من 3500 ملاحظة سريرية منظمة تشكل الأساس التجريبي: حالات مع التهيئة الأولية وسجل التدخلات والمتابعة.",
-  s6_r2tag:"النواة الصلبة", s6_r2t:"الفرضية", s6_r2b:"C0 هي نقطة الإزاحة الهيكلية الأولية التي قد ينشأ منها عدم التماثل الجهازي. مصاغة كفرضية — ليست حقيقة ثابتة.",
+  s6_r2tag:"النواة الصلبة", s6_r2t:"الفرضية", s6_r2b:"C0 هي نقطة الإزاحة الهيكلية الأولية التي قد ينشأ منها عدم التماثل الجهازي. هذا هو الادعاء الذي نختبره — لا الذي نُعلنه مُثبَتاً.",
   s6_r3tag:"القابلية للاختبار", s6_r3t:"معايير الدحض", s6_r3b:"الادعاءات الأساسية مقترنة بالشروط التي يُعدّ بموجبها كل منها خاطئاً.",
   s6_r4tag:"الحدود", s6_r4t:"أسئلة مفتوحة", s6_r4b:"الآليات ومتانة التغيير والتباين السكاني وحدود الفرضية تظل مشكلات بحثية مفتوحة.",
   s6_note:"<b>متطلب التصميم:</b> الملاحظات والفرضيات دائماً مسماة كما هي. التواضع العلمي هيكلي لا بلاغي.",
@@ -1334,8 +1398,8 @@ zh:{
   s5_col1:"领域", s5_col2:"观察到的关联", s5_col3:"状态",
   s5_r1k:"颈部张力", s5_r1v:"在临床观察中与C0位移高度共现。侧别特异性且位置稳定。",
   s5_r2k:"负荷不对称", s5_r2v:"左右结构负荷的可测量差异。在有记录的案例中一致。",
-  s5_r3k:"睡眠质量", s5_r3v:"结构矫正后报告的睡眠变化。机制未确立。",
-  s5_r4k:"认知清晰度", s5_r4v:"矫正后报告的专注力和清晰度改善。可能的血管或神经通路——正在研究中。",
+  s5_r3k:"睡眠质量", s5_r3v:"结构矫正后有记录的睡眠质量变化。机制是一个开放性问题。",
+  s5_r4k:"认知清晰度", s5_r4v:"矫正后有记录的专注力和认知清晰度改善。潜在通路正在研究中。",
   s5_r5k:"人群变异性", s5_r5v:"C0作为原发点与多个原发点之一的程度各异。边界条件未知。",
   s5_s_obs:"已观察", s5_s_hyp:"假说", s5_s_open:"开放",
   s5_note:"<b>认识论注意：</b>「已观察」意味着在案例中有记录——并非通过对照研究确立。所有关联都需要独立验证。",
@@ -1344,7 +1408,7 @@ zh:{
   s6_title:"研究计划，而非教条。",
   s6_lead:"Primordocciput以拉卡托斯意义上的开放研究计划构建：一个硬核假说，周围环绕着可证伪的辅助主张，组织用于测试和修订。",
   s6_r1tag:"经验基础", s6_r1t:"案例观察", s6_r1b:"3500+结构化临床观察构成经验基础：具有初始配置、干预记录和随访的案例。",
-  s6_r2tag:"硬核", s6_r2t:"假说", s6_r2b:"C0是原发性结构位移点，系统性不对称可能从此起源。作为假说陈述——非已确立事实。",
+  s6_r2tag:"硬核", s6_r2t:"假说", s6_r2b:"C0是原发性结构位移点，系统性不对称可能从此起源。这是我们正在检验的主张——而非宣称已经确立的结论。",
   s6_r3tag:"可测试性", s6_r3t:"证伪标准", s6_r3b:"核心主张配有认定其为假的条件。",
   s6_r4tag:"前沿", s6_r4t:"开放性问题", s6_r4b:"机制、变化的持久性、人群变异性和假说的边界仍是开放的研究问题。",
   s6_note:"<b>设计要求：</b>观察和假说始终标注为如此。科学谦逊是结构性的，而非修辞性的。",
@@ -1441,8 +1505,8 @@ ja:{
   s5_col1:"領域", s5_col2:"観察された関連", s5_col3:"状況",
   s5_r1k:"頸部緊張", s5_r1v:"臨床観察でC0変位との高い共起。側面特異的で位置的に安定。",
   s5_r2k:"負荷非対称性", s5_r2v:"左右構造負荷の測定可能な差異。文書化された症例で一貫している。",
-  s5_r3k:"睡眠の質", s5_r3v:"構造矯正後の睡眠変化の報告。メカニズム未確立。",
-  s5_r4k:"認知的明晰さ", s5_r4v:"矯正後の集中力と明晰さの改善の報告。可能な血管または神経経路——研究中。",
+  s5_r3k:"睡眠の質", s5_r3v:"構造矯正後の睡眠の質の変化が文書化されています。メカニズムは未解決の問題です。",
+  s5_r4k:"認知的明晰さ", s5_r4v:"矯正後の集中力と認知的明晰さの改善が文書化されています。基礎となる経路は研究中です。",
   s5_r5k:"集団変動性", s5_r5v:"C0が主要点対複数の主要点の一つである程度は様々。境界条件不明。",
   s5_s_obs:"観察済み", s5_s_hyp:"仮説", s5_s_open:"オープン",
   s5_note:"<b>認識論的注記：</b>「観察済み」とは症例全体で文書化されていることを意味します——対照研究によって確立されたのではありません。すべての関連は独立した検証が必要です。",
@@ -1451,7 +1515,7 @@ ja:{
   s6_title:"研究プログラム、教義ではない。",
   s6_lead:"Primordocciputはラカトス的意味でのオープンな研究プログラムとして構築されています：検証と修正のために組織された反証可能な補助的主張に囲まれたハードコア仮説。",
   s6_r1tag:"実証的基盤", s6_r1t:"症例観察", s6_r1b:"3,500件以上の構造化臨床観察が実証的基盤を形成しています：初期設定、介入記録、フォローアップを含む症例。",
-  s6_r2tag:"ハードコア", s6_r2t:"仮説", s6_r2b:"C0は全身性非対称が生じる可能性のある一次構造変位点です。仮説として述べられています——確立された事実ではありません。",
+  s6_r2tag:"ハードコア", s6_r2t:"仮説", s6_r2b:"C0は全身性非対称が生じる可能性のある一次構造変位点です。これは私たちが検証している主張です——確立されたものとして断言しているのではありません。",
   s6_r3tag:"検証可能性", s6_r3t:"反証基準", s6_r3b:"中核的な主張は、それらが偽とみなされる条件と対になっています。",
   s6_r4tag:"フロンティア", s6_r4t:"オープンな問題", s6_r4b:"メカニズム、変化の持続性、集団変動性、仮説の境界はオープンな研究問題のままです。",
   s6_note:"<b>設計要件：</b>観察と仮説は常にそのように標識されます。科学的謙虚さは構造的であり、修辞的ではありません。",
@@ -1548,8 +1612,8 @@ ko:{
   s5_col1:"영역", s5_col2:"관찰된 연관성", s5_col3:"상태",
   s5_r1k:"경추 긴장", s5_r1v:"임상 관찰에서 C0 변위와 높은 공동 발생. 측면 특이적이며 위치적으로 안정적.",
   s5_r2k:"부하 비대칭", s5_r2v:"좌우 구조 부하의 측정 가능한 차이. 문서화된 사례에서 일관됨.",
-  s5_r3k:"수면의 질", s5_r3v:"구조 교정 후 보고된 수면 변화. 메커니즘 미확립.",
-  s5_r4k:"인지적 명료성", s5_r4v:"교정 후 집중력과 명료성 개선 보고. 가능한 혈관 또는 신경 경로——연구 중.",
+  s5_r3k:"수면의 질", s5_r3v:"구조 교정 후 문서화된 수면 질 변화. 메커니즘은 열린 문제입니다.",
+  s5_r4k:"인지적 명료성", s5_r4v:"교정 후 문서화된 집중력과 인지적 명료성 개선. 기저 경로는 연구 중입니다.",
   s5_r5k:"집단 변동성", s5_r5v:"C0가 일차 점 대 여러 일차 점 중 하나인 정도는 다양함. 경계 조건 불명.",
   s5_s_obs:"관찰됨", s5_s_hyp:"가설", s5_s_open:"열림",
   s5_note:"<b>인식론적 주의사항:</b> '관찰됨'은 사례 전반에 걸쳐 문서화되었음을 의미합니다——대조 연구로 확립된 것이 아닙니다. 모든 연관성은 독립적 검증이 필요합니다.",
@@ -1558,7 +1622,7 @@ ko:{
   s6_title:"연구 프로그램, 교리가 아닌.",
   s6_lead:"Primordocciput은 라카토스적 의미에서 열린 연구 프로그램으로 구축되었습니다: 검증과 수정을 위해 조직된 반증 가능한 보조적 주장들로 둘러싸인 핵심 가설.",
   s6_r1tag:"경험적 기반", s6_r1t:"사례 관찰", s6_r1b:"3,500건 이상의 구조화된 임상 관찰이 경험적 기반을 형성합니다: 초기 구성, 개입 기록, 추적 관찰이 포함된 사례.",
-  s6_r2tag:"핵심", s6_r2t:"가설", s6_r2b:"C0는 전신 비대칭이 발생할 수 있는 일차 구조 변위점입니다. 가설로 진술됨——확립된 사실이 아님.",
+  s6_r2tag:"핵심", s6_r2t:"가설", s6_r2b:"C0는 전신 비대칭이 발생할 수 있는 일차 구조 변위점입니다. 이것은 우리가 검증하고 있는 주장입니다——확립된 것으로 선언하는 것이 아닙니다.",
   s6_r3tag:"검증 가능성", s6_r3t:"반증 기준", s6_r3b:"핵심 주장은 거짓으로 간주될 조건과 쌍을 이룹니다.",
   s6_r4tag:"프론티어", s6_r4t:"열린 문제", s6_r4b:"메커니즘, 변화의 지속성, 집단 변동성, 가설의 경계는 열린 연구 문제로 남아 있습니다.",
   s6_note:"<b>설계 요구사항:</b> 관찰과 가설은 항상 그렇게 표시됩니다. 과학적 겸손함은 구조적이며 수사학적이지 않습니다.",
@@ -1630,9 +1694,11 @@ let currentTheme = "dark";
 function applyLang(lang){
   currentLang=lang;
   const dict=I18N[lang];
+  const fallback=I18N["en"];
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const key=el.getAttribute("data-i18n");
     if(dict[key]!==undefined) el.innerHTML=dict[key];
+    else if(fallback[key]!==undefined) el.innerHTML=fallback[key];
   });
   document.documentElement.lang=lang;
   document.querySelectorAll(".lang button").forEach(b=>{
